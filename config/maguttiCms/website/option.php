@@ -11,11 +11,11 @@ return [
         'phone'	   => '+39 0363.123456',
         'fax'	   => '+39 035.123456',
         'vat'	   => 'P.IVA: XXXXXXXXX',
-        'email'	   => 'laracms@laracms.com',
+        'email'	   => 'support@magutti.com',
 
     ],
     'email' => [
-        'default'	   => 'laracms@laracms.com',
+        'default'	   => 'support@magutti.com',
         'footer'       => '© Copyright  maguttiCms',
     ],
 

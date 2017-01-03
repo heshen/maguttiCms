@@ -45,7 +45,7 @@
         var geocoder 	= null;
         var Indirizzo   ="<div class='mapPop'><b>{!! config('maguttiCms.website.option.app.name')!!} [+]</b><br>{!! config('maguttiCms.website.option.app.address')!!}<br> {!! config('maguttiCms.website.option.app.locality')!!}<br></div>"
         var singlePoint = false; // se true  mette un solo punto sulla mappa
-        var mapIcons='{!! asset(config('maguttiCms.admin.path.assets').'website/images/pointer.png) !!}';
+        var mapIcons='{!! asset(config('maguttiCms.admin.path.assets').'website/images/pointer.png') !!}';
         var zoomLevel = 10
 
         var sites = [

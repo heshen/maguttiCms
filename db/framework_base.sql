@@ -1301,7 +1301,7 @@ CREATE TABLE IF NOT EXISTS `settings` (
 
 INSERT INTO `settings` (`id`, `key`, `value`, `description`, `domain`, `created_at`, `updated_at`) VALUES
 (1, 'GA_CODE', 'UA-', 'Codice  google  analitycs', 'GA', '2016-08-09 12:01:24', '2016-08-09 12:28:06'),
-(2, 'credits_url', 'http://www.laracms.com', 'url credits', 'webiste', '2016-08-09 12:29:05', '2016-12-29 14:35:06'),
+(2, 'credits_url', 'http://www.magutti.com', 'url credits', 'webiste', '2016-08-09 12:29:05', '2016-12-29 14:35:06'),
 (3, 'GA_MAP_API_KEY', '', 'Google maps apy key', 'GA', '2016-12-27 17:28:54', '2016-12-29 09:24:44');
 
 -- --------------------------------------------------------
