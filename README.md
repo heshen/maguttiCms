@@ -12,7 +12,7 @@ simple laravel open source CMS
  - create db tables importing framework_base.sql file located under the db folder
  - to login in the admin panel (http://yourpath/admin)
    - email: cmsadmin@magutti.com
-   - password: admin
+   - password: password
   
 License
 =======
