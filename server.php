@@ -18,7 +18,7 @@ $uri = urldecode(
 
 /*
 |--------------------------------------------------------------------------
-| For production
+| FOR PRODUCTION ENV
 |--------------------------------------------------------------------------
 |
 | uncomment  the following lines
@@ -26,20 +26,28 @@ $uri = urldecode(
 /*
  *
  *
- * if ($uri !== '/' && file_exists(__DIR__.'/'.$uri)) {
+ *
+ if ($uri !== '/' && file_exists(__DIR__.'/public'.$uri)) {
     return false;
-}
+ }
+
+ require_once __DIR__.'/public/index.php';
+ *
+ *
+ *
+ *
  */
+
+
+/*
+|--------------------------------------------------------------------------
+| FOR LOCALHOST ENV
+|--------------------------------------------------------------------------
+|
+| uncomment  the following lines
+*/
 
 if ($uri !== '/' && file_exists(__DIR__.'/public'.$uri)) {
     return false;
 }
-
-/*
-|--------------------------------------------------------------------------
-| For localhost enviroment
-|--------------------------------------------------------------------------
-|
-| uncomment  the following lines
-*/
 require_once __DIR__.'/index.php';
