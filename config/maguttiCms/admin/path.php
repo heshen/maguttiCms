@@ -3,7 +3,7 @@
 return [
 	'repository'     => 'media/',
 	'img_repository' => 'media/images/',
-	'img_save' => 'media/images/cache/',
+	'img_save'       => 'media/images/cache/',
 	'doc_repository' => 'media/docs/',
 
 	'media_img_repository' => 'media/images/',
