@@ -1,4 +1,4 @@
-<?php namespace App\maguttiCms\Website\Controllers\Auth;
+<?php namespace App\MaguttiCms\Website\Controllers\Auth;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;

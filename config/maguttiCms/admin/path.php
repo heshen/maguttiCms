@@ -9,13 +9,12 @@ return [
 	'media_img_repository' => 'media/images/',
 	'media_doc_repository' => 'media/docs/',
 
+	'cms'            => 'cms/',
+	'cms_assets'     => 'cms/',
+	'cms_js'         => 'cms/js/',
+	'cms_css'        => 'cms/css/',
 
-	'cms'            => 'admin/',
-	'cms_assets'     => 'admin/',
-	'cms_js'         => 'admin/js/',
-	'cms_css'        => 'admin/css/',
-
-	'assets'     	   => '',
+	'assets'     	 => '',
 	'common_js'      => 'js/',
 	'js_vendor'      => 'js/vendor/',
 	'plugins'        => 'plugins/',

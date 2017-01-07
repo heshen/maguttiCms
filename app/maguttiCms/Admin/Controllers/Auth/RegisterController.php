@@ -1,6 +1,4 @@
-<?php
-
-namespace App\maguttiCms\Admin\Controllers\Auth;
+<?php namespace App\MaguttiCms\Admin\Controllers\Auth;
 
 use App\User;
 use Validator;

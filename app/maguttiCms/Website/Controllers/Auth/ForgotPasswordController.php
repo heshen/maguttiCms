@@ -1,4 +1,4 @@
-<?php namespace App\maguttiCms\Website\Controllers\Auth;
+<?php namespace App\MaguttiCms\Website\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\SendsPasswordResetEmails;

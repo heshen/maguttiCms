@@ -1,6 +1,4 @@
-<?php
-
-namespace App\maguttiCms\Admin\Controllers\Auth;
+<?php namespace App\MaguttiCms\Admin\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -47,12 +45,8 @@ class LoginController extends Controller
 
     public function showLoginForm()
     {
-
-        return view('admin.login');
+        return view('admin.auth.login');
     }
-
-
-
 
     protected function guard()
     {

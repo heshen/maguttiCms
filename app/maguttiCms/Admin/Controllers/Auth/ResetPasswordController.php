@@ -1,6 +1,6 @@
 <?php
 
-namespace App\maguttiCms\Admin\Controllers\Auth;
+namespace App\MaguttiCms\Admin\Controllers\Auth;
 
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
@@ -53,7 +53,7 @@ class ResetPasswordController extends Controller
 
     public function showResetForm(Request $request, $token = null)
     {
-        return view('admin.auth.passwords.reset')->with(
+        return view('admin.auth.reset')->with(
             ['token' => $token, 'email' => $request->email]
         );
     }
