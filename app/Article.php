@@ -80,13 +80,13 @@ class Article extends Model
     {
         // build array of field specifications
         $this->fieldspec['id'] = [
-            'type'     => 'integer',
-            'minvalue' => 0,
-            'pkey'     => 'y',
-            'required' =>true,
-            'label'    => 'id',
-            'hidden'   => '1',
-            'display'  => '0',
+            'type'      => 'integer',
+            'minvalue'  => 0,
+            'pkey'      => 'y',
+            'required'  => true,
+            'label'     => 'id',
+            'hidden'    => '1',
+            'display'   => '0',
         ];
         $this->fieldspec['id_parent'] = [
             'type'        => 'relation',

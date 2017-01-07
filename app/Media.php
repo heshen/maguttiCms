@@ -40,24 +40,21 @@ class Media extends Model
             'display'  => '0',
         ];
         $this->fieldspec['file_name'] = [
-            'type' =>'readonly',
-            'size' => 600,
-            'h' => 300,
-            'pkey' => 'n',
-            'required' =>true,
-            'hidden' => 0,
-            'label' => 'File name',
-            'extraMsg' => '',
-            'lang' => 0,
-            'display' => 1,
+            'type'      => 'readonly',
+            'required'  => true,
+            'hidden'    => 0,
+            'label'     => 'File name',
+            'extraMsg'  => '',
+            'lang'      => 0,
+            'display'   => 1,
 
         ];
         $this->fieldspec['media_category_id'] = [
-            'type'      => 'relation',
-            'model'     => 'Domain',
-            'filter'    =>  ['domain' => 'imagetype'],
-            'foreign_key' => 'id',
-            'label_key' => 'title',
+            'type'          => 'relation',
+            'model'         => 'Domain',
+            'filter'        =>  ['domain' => 'imagetype'],
+            'foreign_key'   => 'id',
+            'label_key'     => 'title',
             'label'     => 'Media Category',
             'hidden'    => '0',
             'required'  =>  false,
@@ -66,45 +63,40 @@ class Media extends Model
         ];
 
         $this->fieldspec['title']    = [
-            'type' =>'string',
-            'size' =>400,
-            'pkey' => 'n',
-            'required' =>true,
-            'hidden' => '0',
-            'label'=>'Title',
-            'extraMsg'=>'',
-            'display'=>'1',
+            'type'      => 'string',
+            'required'  => true,
+            'hidden'    => 0,
+            'label'     => 'Title',
+            'extraMsg'  => '',
+            'display'   => 1,
         ];
 
         $this->fieldspec['description'] = [
-            'type' =>'text',
-            'size' =>600,
-            'h' =>300,
-            'pkey' => 'n',
-            'required' =>true,
-            'hidden' =>0,
-            'label'=>'Description',
-            'extraMsg'=>'',
-            'cssClass'=>'smallArea',
-            'display'   =>  1,
+            'type'      => 'text',
+            'size'      => 600,
+            'h'         => 300,
+            'required'  => true,
+            'hidden'    => 0,
+            'label'     => 'Description',
+            'extraMsg'  => '',
+            'cssClass'  => 'smallArea',
+            'display'   => 1,
         ];
-
-
         $this->fieldspec['sort'] = [
-            'type' => 'integer',
-            'required' =>true,
-            'label'=>'Order',
-            'hidden' => '0',
-            'display'=>'0',
-            'cssClassElement'=>'col-md-2',
+            'type'      => 'integer',
+            'required'  => false,
+            'label'     => 'Order',
+            'hidden'    => '0',
+            'display'   => '1',
         ];
+
         $this->fieldspec['pub'] = [
-            'type' => 'boolean',
-            'pkey' => 'n',
-            'required' => false,
-            'hidden' => '0',
-            'label' => trans('admin.label.active'),
-            'display' => '1'
+            'type'      => 'boolean',
+            'pkey'      => 'n',
+            'required'  => false,
+            'hidden'    => '0',
+            'label'     => trans('admin.label.active'),
+            'display'   => '1'
         ];
 
         return $this->fieldspec;

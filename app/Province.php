@@ -51,27 +51,21 @@ class Province extends Model
             'required'  =>  true,
             'display'   => '1',
         ];
-        $this->fieldspec['title']    = [
-            'type' =>'string',
-            'size' =>400,
-            'max' => 255,
-            'pkey' => 'n',
-            'required' =>true,
-            'hidden' => '0',
-            'label'=>'Name',
-            'extraMsg'=>'',
-            'display'=>'1',
+        $this->fieldspec['title'] = [
+            'type'      => 'string',
+            'required'  => true,
+            'hidden'    => 0,
+            'label'     => 'title',
+            'extraMsg'  => '',
+            'display'   =>  1,
         ];
         $this->fieldspec['code']    = [
-            'type' =>'string',
-            'size' =>400,
-            'max' => 255,
-            'pkey' => 'n',
-            'required' =>true,
-            'hidden' => '0',
-            'label'=>'Codice',
-            'extraMsg'=>'',
-            'display'=>'1',
+            'type'      => 'string',
+            'required'  => true,
+            'hidden'    => 0,
+            'label'     => 'Code',
+            'extraMsg'  => '',
+            'display'   =>  1,
         ];
         $this->fieldspec['pub'] = [
             'type'     => 'boolean',

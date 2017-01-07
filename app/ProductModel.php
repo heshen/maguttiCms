@@ -35,10 +35,10 @@ class ProductModel extends Model
             'display'  => '0',
         ];
         $this->fieldspec['product_id'] = [
-            'type'      => 'relation',
-            'model'     => 'Product',
-            'foreign_key' => 'id',
-            'label_key' => 'title',
+            'type'          => 'relation',
+            'model'         => 'Product',
+            'foreign_key'   => 'id',
+            'label_key'     => 'title',
             'label'     => 'Product',
             'hidden'    => '0',
             'required'  =>  false,
@@ -46,35 +46,34 @@ class ProductModel extends Model
 
         ];
         $this->fieldspec['title'] = [
-            'type' => 'string',
-            'required' =>true,
-            'hidden' => '0',
-            'label' => 'Title',
-            'extraMsg' => '',
-            'display' => '1',
-        ];
-        $this->fieldspec['image'] = [
-            'type' => 'media',
-            'size' => 600,
-            'h' => 300,
-            'pkey' => 'n',
-            'required' =>true,
-            'hidden' => 0,
-            'label' => 'Cover Image',
-            'extraMsg' => '',
-
-            'mediaType' => 'Img',
-            'display' => 1,
+            'type'      => 'string',
+            'required'  => true,
+            'hidden'    => 0,
+            'label'     => 'title',
+            'extraMsg'  => '',
+            'display'   =>  1,
         ];
         $this->fieldspec['description'] = [
-            'type' => 'text',
-            'required' => false,
-            'hidden' => 0,
-            'label' => 'Description',
-            'extraMsg' => '',
-            'cssClass' => 'ckeditor',
-            'display' => 1,
+            'type'      => 'text',
+            'size'      => 600,
+            'h'         => 300,
+            'required'  => true,
+            'hidden'    => 0,
+            'label'     => 'Description',
+            'extraMsg'  => '',
+            'cssClass'  => 'ckeditor',
+            'display'   => 1,
         ];
+        $this->fieldspec['image'] = [
+            'type'      => 'media',
+            'required'  => false,
+            'hidden'    => 0,
+            'label'     => 'Image',
+            'extraMsg'  => '',
+            'mediaType' => 'Img',
+            'display'   => 1
+        ];
+
         $this->fieldspec['sort'] = [
             'type'     => 'integer',
             'required' => false,

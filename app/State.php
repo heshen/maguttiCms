@@ -39,15 +39,12 @@ class State extends Model
             'display'   => '1',
         ];
         $this->fieldspec['title']    = [
-            'type' =>'string',
-            'size' =>400,
-            'max' => 255,
-            'pkey' => 'n',
-            'required' =>true,
-            'hidden' => '0',
-            'label'=>'Name',
-            'extraMsg'=>'',
-            'display'=>'1',
+            'type'      => 'string',
+            'required'  => true,
+            'hidden'    => '0',
+            'label'     => 'Name',
+            'extraMsg'  => '',
+            'display'   => '1',
         ];
         $this->fieldspec['pub'] = [
             'type'     => 'boolean',

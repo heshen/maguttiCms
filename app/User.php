@@ -1,6 +1,4 @@
-<?php
-
-namespace App;
+<?php namespace App;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -61,25 +59,20 @@ class User extends Authenticatable
             'display'  => '0',
         ];
         $this->fieldspec['name']    = [
-            'type' =>'string',
-            'size' =>400,
-            'max' => 255,
-            'pkey' => 'n',
-            'required' =>true,
-            'hidden' => '0',
-            'label'=>'Name',
-            'extraMsg'=>'',
-            'display'=>'1',
+            'type'      => 'string',
+            'required'  => true,
+            'hidden'    => '0',
+            'label'     => 'Name',
+            'extraMsg'  => '',
+            'display'   => '1',
         ];
         $this->fieldspec['email']    = [
-            'type' =>'string',
-            'size' =>400,
-            'max' => 255,
-            'required' =>true,
-            'hidden' => '0',
-            'label'=>'Email',
-            'extraMsg'=>'',
-            'display'=>'1',
+            'type'      => 'string',
+            'required'  => true,
+            'hidden'    => '0',
+            'label'     => 'Email',
+            'extraMsg'  => '',
+            'display'   => '1',
         ];
         /*
 		$this->fieldspec['role'] = [
@@ -100,26 +93,20 @@ class User extends Authenticatable
 		];
         */
         $this->fieldspec['password']    = [
-            'type' =>'password',
-            'size' =>400,
-            'max' => 255,
-            'pkey' => 'n',
-            'required' =>true,
-            'hidden' => '0',
-            'label'=>'Password',
-            'extraMsg'=>'',
-            'display'=>'1',
-            'template'=>'password'
+            'type'      =>'password',
+            'required'  => true,
+            'hidden'    => '0',
+            'label'     => 'Password',
+            'extraMsg'  => '',
+            'display'   => '1',
+            'template'  => 'password' /*TODO*/
         ];
         $this->fieldspec['is_active']   = [
-            'type' =>'boolean',
-            'size' =>1,
-            'max' => 1,
-            'pkey' => 'n',
-            'required' => false,
-            'hidden' => '0',
-            'label'=>trans('admin.label.active'),
-            'display'=>'1'
+            'type'      => 'boolean',
+            'required'  => false,
+            'hidden'    => '0',
+            'label'     => trans('admin.label.active'),
+            'display'   => '1'
         ];
         return $this->fieldspec;
     }
@@ -141,7 +128,7 @@ class User extends Authenticatable
 
     /*
     |--------------------------------------------------------------------------
-    | Notifiable override the sendPasswordResetNotification
+    | NOTIFIABLE OVERRIDE THE SENDPASSWORDRESETNOTIFICATION
     |--------------------------------------------------------------------------
     |
     */
