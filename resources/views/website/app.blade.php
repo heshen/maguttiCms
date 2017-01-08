@@ -1,4 +1,5 @@
 @inject('pages','App\Article')
+<!DOCTYPE html>
 <html  xmlns="http://www.w3.org/1999/xhtml" xml:lang="{!! LaravelLocalization::getCurrentLocale() !!}" lang="{!! LaravelLocalization::getCurrentLocale() !!}">
 <head>
     <meta charset="utf-8">
