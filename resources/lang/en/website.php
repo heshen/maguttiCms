@@ -52,9 +52,11 @@ return [
 
     'mail_message' => [
         'contact'           => 'New request info from',
-        'firm'       => 'Il team maguttiCms',
+        'firm'              => 'Il team maguttiCms',
         'greeting'	        => 'Dear User',
         'subscribe_newsletter_subject' => 'Newsletter subscription',
+        'subscribe_newsletter_feedback' => 'Thanks for subscribe our newsletter',
+
     ],
     'pagetitle' => [
         'privacy'           => 'Privacy Policy',

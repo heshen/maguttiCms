@@ -37,8 +37,8 @@ class APIController extends Controller
           $saved = $newsletter->save();
 
           return response()->json(array(
-            'status' =>'ok',
-            'msg' => 'email registrata.'
+            'status'=>'ok',
+            'msg'   =>  trans('website.mail_message.subscribe_newsletter_feedback')
           ));
 
         }

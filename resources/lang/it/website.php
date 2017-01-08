@@ -42,6 +42,7 @@ return [
         'contact_feedback'	=> 'Grazie per  aver inviato la tua richiesta',
         'privacy'			=> 'Acconsento al trattamento dei dati',
         'required_field'	=> 'I campi contrassestati con (*) sono obbligatori',
+
         /**************************   COOKIE  ****************************/
         'cookie'			=>'Questo sito o gli strumenti terzi da questo utilizzati si avvalgono di cookie necessari al funzionamento ed utili alle finalità illustrate nella cookie policy. Se vuoi saperne di più o negare il consenso a tutti o ad alcuni cookie, consulta la cookie policy. Cliccando su \'Accetto\' o proseguendo la navigazione acconsenti all’uso dei cookie.',
         'cookie_accept'		=> 'Accetto',
@@ -53,11 +54,12 @@ return [
         'contact'			=> 'Nuova richiesta informazioni da',
         'firm'              => 'Il team maguttiCms',
         'greeting'			=> 'Gentile Utente',
-        'subscribe_newsletter_subject' => 'Iscrizione alla Newsletter',
+        'subscribe_newsletter_subject'  => 'Iscrizione alla Newsletter',
+        'subscribe_newsletter_feedback' => 'Grazie per esserti iscritto alla nostra newsletter',
     ],
 
     'pagetitle' => [
-          'privacy'			=> 'Privacy Policy',
+        'privacy'			=> 'Privacy Policy',
     ],
 
 ];
