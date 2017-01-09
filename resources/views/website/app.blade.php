@@ -98,10 +98,10 @@
 <script type="text/javascript" src="{!! asset(config('maguttiCms.admin.path.assets').'/website/plugins//wow-animations/js/wow.min.js')!!}"></script>
 <script type="text/javascript" src="{!! asset(config('maguttiCms.admin.path.assets').'/website/plugins/owl-carousel/owl.carousel.min.js')!!}"></script>
 <script type="text/javascript" src="{!! asset(config('maguttiCms.admin.path.assets').'/website/plugins/colorbox/jquery.colorbox.js')!!}"></script>
-<script type="text/javascript" src="{!! asset(config('maguttiCms.admin.path.js_vendor').'bootbox.js') !!}"></script>
+<script type="text/javascript" src="{!! asset(config('maguttiCms.admin.path.plugins').'bootbox.js') !!}"></script>
 <script type="text/javascript" src="{!! asset(config('maguttiCms.admin.path.assets').'/website/js/app.js')!!}"></script>
-    <!-- JS Implementing Plugins -->
-    <script type="text/javascript" src="{!! asset(config('maguttiCms.admin.path.assets').'/website/plugins/back-to-top.js')!!}"></script>
+<!-- JS Implementing Plugins -->
+<script type="text/javascript" src="{!! asset(config('maguttiCms.admin.path.assets').'/website/plugins/back-to-top.js')!!}"></script>
 
 @yield('footerjs')
 <script type="text/javascript">

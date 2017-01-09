@@ -9,7 +9,7 @@
         <div class="media mb15 pb15 border-bottom-color-5">
             <div class="media-left">
                 <a href="{{ LaravelLocalization::getLocalizedURL(LaravelLocalization::getCurrentLocale(),URL::to( $article->slug.'/'.$posta->slug )) }}">
-                    <img class="media-object"  src="{!! ImgHelper::get($posta->image, config('magutti.image.small')) !!} !!}" border="0" width="64" heigth="64">
+                    <img class="media-object"  src="{!! ImgHelper::get($posta->image, config('magutti.image.small')) !!}" border="0" width="64" heigth="64">
                 </a>
             </div>
             <div class="media-body">

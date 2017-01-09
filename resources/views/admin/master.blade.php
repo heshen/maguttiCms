@@ -35,9 +35,9 @@
 <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 <script src="{!! asset(config('maguttiCms.admin.path.plugins').'custom-scrollbar/jquery.mCustomScrollbar.concat.min.js')!!}"></script>
 <script src="{!! asset(config('maguttiCms.admin.path.cms_js').'cms.js')!!}"></script>
-<script src="{!! asset(config('maguttiCms.admin.path.js_vendor').'notify.min.js')!!}"></script>
+<script src="{!! asset(config('maguttiCms.admin.path.plugins').'notify.min.js')!!}"></script>
 <script src="{!! asset(config('maguttiCms.admin.path.plugins').'tinymce/tinymce.min.js')!!}"></script>
-<script src="{!! asset(config('maguttiCms.admin.path.js_vendor').'bootbox.js') !!}"></script>
+<script src="{!! asset(config('maguttiCms.admin.path.plugins').'bootbox.js') !!}"></script>
 <script>
     $(document).ready(function() {
         // This command is used to initialize some elements and make them work properly
