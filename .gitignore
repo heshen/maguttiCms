@@ -62,21 +62,16 @@ uploads/*
 # =========================
 
 
-/vendor*.*
 /vendor
-vendor/
-/vendor/**/.git
-/bootstrap/compiled.php
-/vendor
-.idea/ #I added this for phpstorm
-composer.phar
-composer.lock
-.env.*.php
-.env.php
-.DS_Store
-Thumbs.db
 /node_modules
-/public/build**
+/public/storage
+Homestead.yaml
+Homestead.json
+.env
+.project
+.DS_Store
+clockwork
+/.idea
 
 #PHP Storm
 # =========================
@@ -89,12 +84,5 @@ npm-shrinkwrap.json
 
 *.env
 
-
-
-
-
-
-
-
 /.env
-/public/media/images/cache/
+
