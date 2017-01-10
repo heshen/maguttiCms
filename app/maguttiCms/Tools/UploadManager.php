@@ -4,7 +4,7 @@ Use App;
 use Carbon\Carbon;
 use Input;
 class UploadManager {
-    protected $media;
+
     protected $model;
 
     protected $newMedia;        // file object
@@ -19,30 +19,43 @@ class UploadManager {
      * @param $model
      * @return $this
      */
-    public function init($media,$model) {
-        $this->model = $model;
+    public function init($media) {
         $this->media = $media;
         return $this;
     }
 
-    /**
-     * Upload and  store  function
-     * @return $this
-     */
-    public function store() {
 
+    protected function prepareMediaToUplod() {
         if (Input::hasFile($this->media) && Input::file($this->media)->isValid()) {
             $this->newMedia        = Input::file($this->media);
             $this->setFileFullName($this->newMedia->getClientOriginalName());
             $this->fileNameHandler();
-            $this->newMedia->move($this->getDestinationPath(),$this->getFileFullName()); // uploading file to given path;
+            return true;
         }
+        return false;
+
+    }
+    /**
+     * Store function
+     * @return $this
+     */
+    public function store() {
+        if($this->prepareMediaToUplod())$this->newMedia->move($this->getDestinationPath(),$this->getFileFullName()); // uploading file to given path;
         return  $this;
     }
 
     /**
-     * @return mixed
+     * Store any media using
+     * Ajax file upload
+     * @return $this
      */
+    public function storeAjax() {
+        if($this->prepareMediaToUplod()){
+            $storage = \Storage::disk('media');
+            $storage->put( $this->getMediaType() . '/' . $this->getFileFullName(), file_get_contents($this->newMedia, 'public'));
+        }
+        return  $this;
+    }
 
     /**
      * Rename the file name if
@@ -85,14 +98,14 @@ class UploadManager {
     /**
      * @return mixed
      */
-    protected function getFileBaseName() {
+    public function getFileBaseName() {
         return $this->fileBaseName  = basename($this->newMedia->getClientOriginalName(),'.'.$this->newMedia->getClientOriginalExtension());
     }
 
     /**
      * @return string
      */
-    protected function getMediaType() {
+    public function getMediaType() {
         return $this->mediaType    = ( is_image( $this->newMedia->getMimeType()) == 'image') ? 'images':'docs';
     }
 
@@ -113,18 +126,21 @@ class UploadManager {
     }
 
 
+    /**
+     * Store file attributes
+     * @return array
+     */
     public function getFileDetails()
     {
 
         return [
-            'basename' => $this->getFileBaseName(),
-            'fullName' => $this->getFileFullName(),
-            'extension'=> $this->getFileExtension(),
-            'fullPath' => $this->getDestinationPath(),
-            'mimeType' => $this->newMedia->getMimeType(),
-            'size'     => $this->newMedia->getClientSize(),
+            'basename'  => $this->getFileBaseName(),
+            'fullName'  => $this->getFileFullName(),
+            'extension' => $this->getFileExtension(),
+            'fullPath'  => $this->getDestinationPath(),
+            'mimeType'  => $this->newMedia->getMimeType(),
+            'mediaType' => $this->getMediaType(),
+            'size'      => $this->newMedia->getClientSize(),
         ];
     }
-
-
 }
