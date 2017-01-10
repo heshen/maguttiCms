@@ -48,6 +48,47 @@ class AjaxController extends Controller
         return $this->responseHandler();
     }
 
+    public function uploadifive2(Request $request)
+    {
+        $media = 'Filedata';
+        if (Input::hasFile($media) && Input::file($media)->isValid()) {
+            $newMedia = Input::file($media);
+            $mediaType = (is_image($newMedia->getMimeType()) == 'image') ? 'images' : 'docs';
+            $destinationPath = $mediaType; // upload path folder
+            $extension = $newMedia->getClientOriginalExtension(); // getting image extension
+            $name = basename($newMedia->getClientOriginalName(), '.' . $extension);
+            $fileName   = $newMedia->getClientOriginalName();
+            $mediaPath  = public_path('media/' . $destinationPath . '/' . $fileName);
+            // renaming image if exist
+            if (file_exists($mediaPath)) $fileName = str_slug(rand(11111, 99999) . '_' . $name) . "." . $extension;
+            $storage = \Storage::disk('media');
+            $storage->put($destinationPath . '/' . $fileName, file_get_contents($newMedia), 'public');
+            if (is_image($newMedia->getMimeType()) == 'image') {
+                //$img = Image::make($newMedia->getRealPath());
+                $img = Image::make(public_path('media/' . $destinationPath . '/' . $fileName))->widen(1600);
+                // save file as png with medium quality
+                $img->save(public_path('media/' . $destinationPath . '/' . $fileName, 60));
+            }
+            $modelClass = 'App\\' . $request->model;
+            $list = $modelClass::find($request->Id);
+
+            $c = new Media;
+            $c->title = $fileName;
+            $c->file_name = $fileName;
+            $c->size = $newMedia->getClientSize();
+            $c->collection_name = $mediaType;
+            $c->disk = $destinationPath;
+            $c->media_category_id = 1;//$request->myImgType;
+            $c->file_ext = $extension;
+            $list->media()->save($c);
+            $this->responseContainer['status'] = 'ok';
+            $this->responseContainer['data'] = $mediaType;
+            return $this->responseHandler();
+        }
+    }
+
+
+
     public function uploadifive(Request $request)
     {
         $media = 'Filedata';

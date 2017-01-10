@@ -113,4 +113,18 @@ class UploadManager {
     }
 
 
+    public function getFileDetails()
+    {
+
+        return [
+            'basename' => $this->getFileBaseName(),
+            'fullName' => $this->getFileFullName(),
+            'extension'=> $this->getFileExtension(),
+            'fullPath' => $this->getDestinationPath(),
+            'mimeType' => $this->newMedia->getMimeType(),
+            'size'     => $this->newMedia->getClientSize(),
+        ];
+    }
+
+
 }
