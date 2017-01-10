@@ -8,6 +8,7 @@ use Input;
 use App\MaguttiCms\Admin\Requests\AdminFormRequest;
 use App\MaguttiCms\Searchable\SearchableTrait;
 use App\MaguttiCms\Sluggable\SluggableTrait;
+use App\MaguttiCms\Tools\UploadManager;
 
 
 
@@ -34,7 +35,7 @@ class AdminPagesController extends Controller
     public function init($model)
     {
         $this->model = $model;
-        $this->config = config('maguttiCms.admin.list.section.' . $this->model);
+        $this->config = config('laraCms.admin.list.section.' . $this->model);
         $this->models = strtolower(str_plural($this->config['model']));
         $this->modelClass = 'App\\' . $this->config['model'];
     }
@@ -72,7 +73,7 @@ class AdminPagesController extends Controller
             $objBuilder  = $models::orderby($this->sort, $this->sortType);
         }
         $this->searchFilter( $objBuilder );
-        $articles = $objBuilder->paginate(config('maguttiCms.admin.list.item_per_pages'));
+        $articles = $objBuilder->paginate(config('laraCms.admin.list.item_per_pages'));
         return view('admin.list', ['articles' => $articles, 'pageConfig' => $this->config]);
     }
 
@@ -91,7 +92,8 @@ class AdminPagesController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * Show the form for editing
+     * the specified resource.
      *
      * @param $model
      * @param  int $id
@@ -111,7 +113,7 @@ class AdminPagesController extends Controller
 
     /**
      *
-     * GF_ma  view controller
+     * GF_ma view controller
      * @param $model
      * @param $id
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
@@ -143,7 +145,8 @@ class AdminPagesController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Store a newly created
+     * resource in storage.
      *
      * @param $model
      * @param AdminFormRequest $request
@@ -154,7 +157,7 @@ class AdminPagesController extends Controller
     {
         $this->init($model);
         $this->request = $request;
-        $config = config('maguttiCms.admin.list.section.' . $model);
+        $config = config('laraCms.admin.list.section.' . $model);
         $model  = new  $this->modelClass;
         $article = new $model;
         // input data Handler
@@ -186,7 +189,8 @@ class AdminPagesController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Update the specified resource
+     * in storage.
      *
      * @param $model
      * @param  int $id
@@ -206,7 +210,8 @@ class AdminPagesController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Remove the specified resource
+     * from storage.
      *
      * @param $model
      * @param $id
@@ -240,6 +245,7 @@ class AdminPagesController extends Controller
         $this->processMedia($article);
         $article->save();
         // many to many relation
+        /* TODO -> create  dimanic  check roles */
         if (method_exists($article, 'saveRoles'))       $article->saveRoles($this->request->get('role'));
         if (method_exists($article, 'saveTags'))        $article->saveTags($this->request->get('tag'));
         if (method_exists($article, 'saveCountries'))   $article->saveCountries($this->request->get('country'));
@@ -256,31 +262,19 @@ class AdminPagesController extends Controller
     }
 
     /**
+     * Perform the media upload
      * @param $model
      * @param $media
      */
-    private function mediaHandler($model, $media)
+    private function mediaHandler($model,$media)
     {
-        //$UM = new UploadManager;
-        //$UM->init($media,$model);
-
-        if (Input::hasFile($media) && Input::file($media)->isValid()) {
-            $newMedia        = Input::file($media);
-            $mediaType       = ( is_image( $newMedia->getMimeType()) == 'image') ? 'images':'docs';
-            $destinationPath = config('maguttiCms.admin.path.repository').$mediaType;               // upload path
-            $extension 		 = $newMedia->getClientOriginalExtension();                          // getting image extension
-            $name 			 = basename($newMedia->getClientOriginalName(),'.'.$extension);
-            $fileName 		 = $newMedia->getClientOriginalName();
-            // renaming image if exist
-            if(  file_exists(public_path($destinationPath.'/'.$fileName))) $fileName = str_slug(rand(11111,99999).'_'.$name).".".$extension;
-            $newMedia->move($destinationPath, $fileName); // uploading file to given path
-            $model->$media = $fileName;
-
-        }
+        $UM = new UploadManager;
+        $model->$media = $UM->init($media,$model)->store()->getFileFullName();
     }
 
     /**
-     * PROCESS ALL THE MEDIA FILES
+     * PROCESS ALL THE
+     * MEDIA FILES
      * @param $model
      */
     private function processMedia($model)
