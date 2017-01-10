@@ -10,7 +10,6 @@
 | to using a Closure or controller method. Build something great!
 |
 */
-
 Route::group(array('prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['adminauth']), function () {
 
     Route::get('/',                         '\App\MaguttiCms\Admin\Controllers\AdminPagesController@home');
@@ -33,7 +32,8 @@ Route::group(array('prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 
     Route::get('api/updateMediaSortList/',                  '\App\MaguttiCms\Admin\Controllers\AjaxController@updateMediaSortList');
     Route::get('api/suggest', ['as' => 'api.suggest', 'uses' => '\App\MaguttiCms\Admin\Controllers\AjaxController@suggest']);
 
-    Route::get('export/{model?}', '\App\MaguttiCms\Admin\Controllers\ExportController@model');
+    Route::get('export/{model?}',               '\App\MaguttiCms\Admin\Controllers\ExportController@model');
+    Route::get('/exportlist/{section?}/{sub?}', '\App\LaraCms\Admin\Controllers\AdminExportController@lista');
 
 });
 
@@ -100,7 +100,7 @@ Route::group(['prefix' => LaravelLocalization::setLocale()], function () {
 
 /*
 |--------------------------------------------------------------------------
-|   RESERVED AREA USER ROUTE
+|   RESERVED AREA USER ROUTES
 |--------------------------------------------------------------------------
 */
 Route::group(['prefix' => LaravelLocalization::setLocale(),'middleware' => ['auth']], function () {
