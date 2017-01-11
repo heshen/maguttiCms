@@ -1,26 +1,27 @@
 <?php namespace App\MaguttiCms\Tools;
+use Input;
 Use Form;
 Use App;
-use Carbon\Carbon;
-use Input;
+
 class UploadManager {
 
     protected $model;
-
-    protected $newMedia;        // file object
-    protected $fileFullName;    // full filename
+    protected $newMedia;            // file object
+    protected $fileFullName;        // full filename
     protected $fileBaseName;        // filename  without extension
-    protected $fileExtension;   // file extension
-    protected $mediaType;       // media type  doc or image
-    protected $destinationPath; // media destination path
+    protected $fileExtension;       // file extension
+    protected $mediaType;           // media type  doc or image
+    protected $destinationPath;     // media destination path
+    protected $disk     = 'media';  // media folder
 
     /**
      * @param $media
      * @param $model
      * @return $this
      */
-    public function init($media) {
-        $this->media = $media;
+    public function init($media,$request) {
+        $this->media   = $media;
+        $this->request = $request;
         return $this;
     }
 
@@ -36,11 +37,19 @@ class UploadManager {
 
     }
     /**
-     * Store function
+     * Store function uploading
+     * file to given path;
      * @return $this
      */
     public function store() {
-        if($this->prepareMediaToUplod())$this->newMedia->move($this->getDestinationPath(),$this->getFileFullName()); // uploading file to given path;
+
+        if($this->prepareMediaToUplod()){
+            $this->request->file($this->media)->storeAs(
+                $this->getMediaType(),
+                $this->getFileFullName(),
+                $this->getDisk()
+            );
+        }
         return  $this;
     }
 
@@ -49,10 +58,16 @@ class UploadManager {
      * Ajax file upload
      * @return $this
      */
+    /*
+     * TODO
+     * will be removed
+     */
     public function storeAjax() {
         if($this->prepareMediaToUplod()){
-            $storage = \Storage::disk('media');
-            $storage->put( $this->getMediaType() . '/' . $this->getFileFullName(), file_get_contents($this->newMedia, 'public'));
+            $storage = \Storage::disk($this->getDisk());
+            $storage->put( $this->getMediaType() . '/' . $this->getFileFullName(),
+                file_get_contents($this->newMedia,
+                    'public'));
         }
         return  $this;
     }
@@ -123,6 +138,24 @@ class UploadManager {
     public function setFileFullName($fileName)
     {
         $this->fileFullName = $fileName;
+    }
+
+    /**
+     * @param string $disk
+     * @return UploadManager
+     */
+    public function setDisk($disk)
+    {
+        $this->disk = $disk;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getDisk()
+    {
+        return $this->disk;
     }
 
 

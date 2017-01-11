@@ -269,7 +269,7 @@ class AdminPagesController extends Controller
     private function mediaHandler($model,$media)
     {
         $UM = new UploadManager;
-        $model->$media = $UM->init($media,$model)->store()->getFileFullName();
+        $model->$media = $UM->init($media,$this->request)->store()->getFileFullName();
     }
 
     /**
