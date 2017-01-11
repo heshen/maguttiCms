@@ -6,7 +6,7 @@
             - <span id="cookie_close" class="close_eu pointer" style="padding:0px;" href="javascript:void(0);">{!! trans('website.message.cookie_accept')!!}</span>
         </div>
     </div>
-    <script type="text/javascript" src="{!! asset('website/js/jquery.maCookieEu.js')!!}"></script>
+    <script type="text/javascript" src="{!! asset(config('maguttiCms.admin.path.assets').'website/js/jquery.maCookieEu.js')!!}"></script>
     <script>
         jQuery(document).ready(function($){
             var cH = $.maCookieEu(this,{
