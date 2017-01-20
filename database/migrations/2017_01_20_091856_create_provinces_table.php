@@ -24,13 +24,9 @@ class CreateProvincesTable extends Migration
             $table->string('title', 255);
             $table->string('code', 32);
             $table->integer('pub')->default(1);
-            $table->dateTime('created_at');
-            $table->dateTime('updated_at');
-
+            $table->timestamps();
             $table->index('state_id', 'id_region');
             $table->index('country_id', 'id_country');
-
-            
 
         });
     }

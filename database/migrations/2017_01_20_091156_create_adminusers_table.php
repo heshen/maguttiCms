@@ -23,19 +23,17 @@ class CreateAdminusersTable extends Migration
             $table->string('email', 255);
             $table->integer('has_notify');
             $table->integer('has_report');
-            $table->integer('can_export')->comment('puop exportare le  richieste');
+            $table->integer('can_export')->comment('puo exportare le richieste');
             $table->integer('region_id');
             $table->string('password', 60);
             $table->string('real_password', 255)->nullable();
-            $table->rememberToken();
-            $table->timestamps();
             $table->tinyInteger('is_active')->default(1);
             $table->string('first_name', 255);
             $table->string('last_name', 255);
-
             $table->unique('email', 'users_email_unique');
 
-            
+            $table->rememberToken();
+            $table->timestamps();
 
         });
     }

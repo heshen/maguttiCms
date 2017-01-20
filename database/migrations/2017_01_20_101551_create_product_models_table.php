@@ -32,11 +32,6 @@ class CreateProductModelsTable extends Migration
             $table->string('feature', 255)->nullable();
             $table->string('doc', 255);
             $table->timestamps();
-
-            
-
-            
-
         });
     }
 

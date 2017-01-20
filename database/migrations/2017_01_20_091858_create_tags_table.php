@@ -24,11 +24,6 @@ class CreateTagsTable extends Migration
             $table->unsignedInteger('created_by');
             $table->unsignedInteger('update_by');
             $table->timestamps();
-
-            
-
-            
-
         });
     }
 

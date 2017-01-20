@@ -45,11 +45,8 @@ class CreateProductsTable extends Migration
             $table->string('voltage_supply', 255)->comment('tensio');
             $table->string('power_supply', 255);
             $table->string('temperature', 255);
-
-            $table->unique('slug', 'products_slug_unique');
             $table->timestamps();
-
-            
+            $table->unique('slug', 'products_slug_unique');
 
         });
     }
