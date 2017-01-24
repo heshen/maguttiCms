@@ -31,7 +31,7 @@ class LoginController extends Controller
     protected $redirectPath          = '/admin';
     protected $redirectAfterLogout   = '/admin';
     protected $localePrefix          =  '';
-   
+
 
     public function showLoginForm()
     {
