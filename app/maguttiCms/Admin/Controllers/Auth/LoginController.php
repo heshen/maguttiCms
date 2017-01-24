@@ -21,8 +21,6 @@ class LoginController extends Controller
 
     use AuthenticatesUsers;
 
-
-
     /**
      * Where to redirect users after login.
      *
@@ -33,19 +31,25 @@ class LoginController extends Controller
     protected $redirectPath          = '/admin';
     protected $redirectAfterLogout   = '/admin';
     protected $localePrefix          =  '';
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        //$this->middleware('adminauth', ['except' => 'logout']);
-    }
+   
 
     public function showLoginForm()
     {
         return view('admin.auth.login');
+    }
+
+    /*
+    |--------------------------------------------------------------------------
+    | Credentials
+    |--------------------------------------------------------------------------
+    |
+    | Add is_active = 1 to validate
+    | the adminuser login
+    |
+    */
+    protected function credentials(Request $request)
+    {
+        return array_merge($request->only($this->username(), 'password'), ['is_active' => 1]);
     }
 
     protected function guard()
