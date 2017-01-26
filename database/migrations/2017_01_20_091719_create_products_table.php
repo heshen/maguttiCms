@@ -33,18 +33,8 @@ class CreateProductsTable extends Migration
             $table->string('seo_description', 255)->nullable();
             $table->string('seo_keywords', 255)->nullable();
             $table->integer('created_by');
-            $table->string('code', 100);
-            $table->text('abstract')->nullable();
-            $table->string('banner', 255)->nullable();
-            $table->string('logo', 255);
-            $table->string('accessory_image', 255);
-            $table->string('pack_image', 255);
-            $table->string('size', 255);
-            $table->string('catalogue_id', 255)->nullable();
-
             $table->timestamps();
             $table->unique('slug', 'products_slug_unique');
-
         });
     }
 
