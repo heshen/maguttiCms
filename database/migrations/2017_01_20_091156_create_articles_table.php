@@ -29,10 +29,10 @@ class CreateArticlesTable extends Migration
             $table->string('abstract', 255)->nullable();
             $table->text('description');
             $table->string('slug', 255)->nullable();
-            $table->string('doc', 255);
-            $table->string('image', 255);
-            $table->string('banner', 255);
-            $table->string('link', 255);
+            $table->string('doc', 255)->nullable();
+            $table->string('image', 255)->nullable();
+            $table->string('banner', 255)->nullable();
+            $table->string('link', 255)->nullable();
             $table->integer('sort');
             $table->tinyInteger('pub')->nullable()->default(1);
             $table->tinyInteger('top_menu')->nullable()->default(1);

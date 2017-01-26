@@ -91,7 +91,7 @@ class UploadManager {
      */
     public function getDestinationPath()
     {
-        return $this->destinationPath = config('laraCms.admin.path.repository').$this->getMediaType();
+        return $this->destinationPath = config('maguttiCms.admin.path.repository').$this->getMediaType();
     }
 
     /**

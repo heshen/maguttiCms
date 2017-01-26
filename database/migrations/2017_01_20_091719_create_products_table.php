@@ -24,7 +24,7 @@ class CreateProductsTable extends Migration
             $table->string('subtitle', 255);
             $table->text('description');
             $table->string('slug', 255)->nullable();
-            $table->string('image', 255);
+            $table->string('image', 255)->nullable();
             $table->string('doc', 255)->nullable();
             $table->string('video', 255);
             $table->integer('sort');
@@ -35,16 +35,13 @@ class CreateProductsTable extends Migration
             $table->integer('created_by');
             $table->string('code', 100);
             $table->text('abstract')->nullable();
-            $table->string('banner', 255);
+            $table->string('banner', 255)->nullable();
             $table->string('logo', 255);
             $table->string('accessory_image', 255);
             $table->string('pack_image', 255);
             $table->string('size', 255);
             $table->string('catalogue_id', 255)->nullable();
-            $table->integer('patented')->nullable();
-            $table->string('voltage_supply', 255)->comment('tensio');
-            $table->string('power_supply', 255);
-            $table->string('temperature', 255);
+
             $table->timestamps();
             $table->unique('slug', 'products_slug_unique');
 

@@ -7,7 +7,6 @@ return [
      */
     'item_per_pages' => 25,
     'section' => [
-
         'articles' => [
             'model' => 'Article',
             'title' => 'Pages',

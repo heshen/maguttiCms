@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.3.11
--- http://www.phpmyadmin.net
+-- version 4.6.5.2
+-- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Gen 03, 2017 alle 17:39
--- Versione del server: 5.6.24
--- PHP Version: 5.6.8
+-- Host: localhost
+-- Creato il: Gen 26, 2017 alle 16:46
+-- Versione del server: 5.7.14
+-- Versione PHP: 7.0.14
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -14,10 +14,10 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
+/*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `magutticms`
+-- Database: `maguttiCms`
 --
 
 -- --------------------------------------------------------
@@ -27,8 +27,8 @@ SET time_zone = "+00:00";
 --
 
 DROP TABLE IF EXISTS `adminusers`;
-CREATE TABLE IF NOT EXISTS `adminusers` (
-  `id` int(10) unsigned NOT NULL,
+CREATE TABLE `adminusers` (
+  `id` int(10) UNSIGNED NOT NULL,
   `first_name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `last_name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `email` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
@@ -38,7 +38,7 @@ CREATE TABLE IF NOT EXISTS `adminusers` (
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `is_active` tinyint(4) NOT NULL DEFAULT '1'
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dump dei dati per la tabella `adminusers`
@@ -54,8 +54,8 @@ INSERT INTO `adminusers` (`id`, `first_name`, `last_name`, `email`, `password`, 
 --
 
 DROP TABLE IF EXISTS `articles`;
-CREATE TABLE IF NOT EXISTS `articles` (
-  `id` int(10) unsigned NOT NULL,
+CREATE TABLE `articles` (
+  `id` int(10) UNSIGNED NOT NULL,
   `domain` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `id_parent` int(11) NOT NULL,
   `id_template` int(11) NOT NULL,
@@ -66,8 +66,8 @@ CREATE TABLE IF NOT EXISTS `articles` (
   `abstract` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `description` text COLLATE utf8_unicode_ci NOT NULL,
   `slug` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `doc` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `image` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `doc` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `image` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `banner` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `link` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `sort` int(11) NOT NULL,
@@ -77,7 +77,7 @@ CREATE TABLE IF NOT EXISTS `articles` (
   `created_by` int(11) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dump dei dati per la tabella `articles`
@@ -106,9 +106,9 @@ INSERT INTO `articles` (`id`, `domain`, `id_parent`, `id_template`, `menu_title`
 --
 
 DROP TABLE IF EXISTS `article_translations`;
-CREATE TABLE IF NOT EXISTS `article_translations` (
-  `id` int(10) unsigned NOT NULL,
-  `article_id` int(10) unsigned NOT NULL,
+CREATE TABLE `article_translations` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `article_id` int(10) UNSIGNED NOT NULL,
   `locale` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `menu_title` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `title` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
@@ -124,7 +124,7 @@ CREATE TABLE IF NOT EXISTS `article_translations` (
   `update_by` int(11) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dump dei dati per la tabella `article_translations`
@@ -167,8 +167,8 @@ INSERT INTO `article_translations` (`id`, `article_id`, `locale`, `menu_title`, 
 --
 
 DROP TABLE IF EXISTS `attributes`;
-CREATE TABLE IF NOT EXISTS `attributes` (
-  `id` int(10) unsigned NOT NULL,
+CREATE TABLE `attributes` (
+  `id` int(10) UNSIGNED NOT NULL,
   `title` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `domain` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `code` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
@@ -188,9 +188,9 @@ CREATE TABLE IF NOT EXISTS `attributes` (
 --
 
 DROP TABLE IF EXISTS `attribute_product`;
-CREATE TABLE IF NOT EXISTS `attribute_product` (
-  `product_id` int(10) unsigned NOT NULL,
-  `attribute_id` int(10) unsigned NOT NULL,
+CREATE TABLE `attribute_product` (
+  `product_id` int(10) UNSIGNED NOT NULL,
+  `attribute_id` int(10) UNSIGNED NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -202,14 +202,14 @@ CREATE TABLE IF NOT EXISTS `attribute_product` (
 --
 
 DROP TABLE IF EXISTS `attribute_translations`;
-CREATE TABLE IF NOT EXISTS `attribute_translations` (
-  `id` int(10) unsigned NOT NULL,
-  `attribute_id` int(10) unsigned NOT NULL,
+CREATE TABLE `attribute_translations` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `attribute_id` int(10) UNSIGNED NOT NULL,
   `locale` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `title` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `description` text COLLATE utf8_unicode_ci NOT NULL,
-  `created_by` int(10) unsigned NOT NULL,
-  `update_by` int(10) unsigned NOT NULL,
+  `created_by` int(10) UNSIGNED NOT NULL,
+  `update_by` int(10) UNSIGNED NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -221,9 +221,9 @@ CREATE TABLE IF NOT EXISTS `attribute_translations` (
 --
 
 DROP TABLE IF EXISTS `categories`;
-CREATE TABLE IF NOT EXISTS `categories` (
-  `id` int(10) unsigned NOT NULL,
-  `id_parent` int(10) unsigned DEFAULT NULL,
+CREATE TABLE `categories` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `id_parent` int(10) UNSIGNED DEFAULT NULL,
   `title` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `abstract` text COLLATE utf8_unicode_ci,
   `description` text COLLATE utf8_unicode_ci,
@@ -239,7 +239,7 @@ CREATE TABLE IF NOT EXISTS `categories` (
   `created_by` int(11) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dump dei dati per la tabella `categories`
@@ -257,20 +257,20 @@ INSERT INTO `categories` (`id`, `id_parent`, `title`, `abstract`, `description`,
 --
 
 DROP TABLE IF EXISTS `category_translations`;
-CREATE TABLE IF NOT EXISTS `category_translations` (
-  `id` int(10) unsigned NOT NULL,
-  `category_id` int(10) unsigned NOT NULL,
+CREATE TABLE `category_translations` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `category_id` int(10) UNSIGNED NOT NULL,
   `locale` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `title` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `description` text COLLATE utf8_unicode_ci,
   `seo_title` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `seo_description` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `seo_keywords` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `created_by` int(10) unsigned NOT NULL,
-  `update_by` int(10) unsigned NOT NULL,
+  `created_by` int(10) UNSIGNED NOT NULL,
+  `update_by` int(10) UNSIGNED NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dump dei dati per la tabella `category_translations`
@@ -291,8 +291,8 @@ INSERT INTO `category_translations` (`id`, `category_id`, `locale`, `title`, `de
 --
 
 DROP TABLE IF EXISTS `contacts`;
-CREATE TABLE IF NOT EXISTS `contacts` (
-  `id` int(10) unsigned NOT NULL,
+CREATE TABLE `contacts` (
+  `id` int(10) UNSIGNED NOT NULL,
   `request_product_id` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `subject` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `message` text COLLATE utf8_unicode_ci NOT NULL,
@@ -313,8 +313,8 @@ CREATE TABLE IF NOT EXISTS `contacts` (
 --
 
 DROP TABLE IF EXISTS `countries`;
-CREATE TABLE IF NOT EXISTS `countries` (
-  `id` int(10) unsigned NOT NULL,
+CREATE TABLE `countries` (
+  `id` int(10) UNSIGNED NOT NULL,
   `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `iso_code` varchar(3) COLLATE utf8_unicode_ci NOT NULL,
   `id_continent` int(11) DEFAULT NULL,
@@ -325,7 +325,7 @@ CREATE TABLE IF NOT EXISTS `countries` (
   `updated_by` int(11) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=248 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dump dei dati per la tabella `countries`
@@ -587,8 +587,8 @@ INSERT INTO `countries` (`id`, `name`, `iso_code`, `id_continent`, `eu`, `vat`, 
 --
 
 DROP TABLE IF EXISTS `domains`;
-CREATE TABLE IF NOT EXISTS `domains` (
-  `id` int(10) unsigned NOT NULL,
+CREATE TABLE `domains` (
+  `id` int(10) UNSIGNED NOT NULL,
   `domain` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `title` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `value` text COLLATE utf8_unicode_ci NOT NULL,
@@ -597,7 +597,7 @@ CREATE TABLE IF NOT EXISTS `domains` (
   `created_by` int(11) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dump dei dati per la tabella `domains`
@@ -615,15 +615,15 @@ INSERT INTO `domains` (`id`, `domain`, `title`, `value`, `sort`, `pub`, `created
 --
 
 DROP TABLE IF EXISTS `domain_translations`;
-CREATE TABLE IF NOT EXISTS `domain_translations` (
-  `id` int(10) unsigned NOT NULL,
-  `domain_id` int(10) unsigned NOT NULL,
+CREATE TABLE `domain_translations` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `domain_id` int(10) UNSIGNED NOT NULL,
   `locale` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `title` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `update_by` int(10) unsigned NOT NULL,
+  `update_by` int(10) UNSIGNED NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=123 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dump dei dati per la tabella `domain_translations`
@@ -644,8 +644,8 @@ INSERT INTO `domain_translations` (`id`, `domain_id`, `locale`, `title`, `update
 --
 
 DROP TABLE IF EXISTS `hpsliders`;
-CREATE TABLE IF NOT EXISTS `hpsliders` (
-  `id` int(10) unsigned NOT NULL,
+CREATE TABLE `hpsliders` (
+  `id` int(10) UNSIGNED NOT NULL,
   `title` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `description` text COLLATE utf8_unicode_ci NOT NULL,
   `icon` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
@@ -657,7 +657,7 @@ CREATE TABLE IF NOT EXISTS `hpsliders` (
   `created_by` int(11) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dump dei dati per la tabella `hpsliders`
@@ -674,10 +674,10 @@ INSERT INTO `hpsliders` (`id`, `title`, `description`, `icon`, `image`, `link`, 
 --
 
 DROP TABLE IF EXISTS `media`;
-CREATE TABLE IF NOT EXISTS `media` (
-  `id` int(10) unsigned NOT NULL,
-  `media_category_id` int(10) unsigned NOT NULL,
-  `model_id` int(10) unsigned NOT NULL,
+CREATE TABLE `media` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `media_category_id` int(10) UNSIGNED NOT NULL,
+  `model_id` int(10) UNSIGNED NOT NULL,
   `model_type` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `collection_name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `title` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
@@ -685,13 +685,13 @@ CREATE TABLE IF NOT EXISTS `media` (
   `file_name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `file_ext` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `disk` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `size` int(10) unsigned NOT NULL,
+  `size` int(10) UNSIGNED NOT NULL,
   `manipulations` text COLLATE utf8_unicode_ci NOT NULL,
   `pub` tinyint(4) DEFAULT '1',
-  `sort` int(10) unsigned DEFAULT NULL,
+  `sort` int(10) UNSIGNED DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB AUTO_INCREMENT=100 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dump dei dati per la tabella `media`
@@ -734,15 +734,15 @@ INSERT INTO `media` (`id`, `media_category_id`, `model_id`, `model_type`, `colle
 --
 
 DROP TABLE IF EXISTS `media_translations`;
-CREATE TABLE IF NOT EXISTS `media_translations` (
-  `id` int(10) unsigned NOT NULL,
-  `media_id` int(10) unsigned NOT NULL,
+CREATE TABLE `media_translations` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `media_id` int(10) UNSIGNED NOT NULL,
   `locale` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `title` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `description` text COLLATE utf8_unicode_ci NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB AUTO_INCREMENT=155 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dump dei dati per la tabella `media_translations`
@@ -789,7 +789,7 @@ INSERT INTO `media_translations` (`id`, `media_id`, `locale`, `title`, `descript
 --
 
 DROP TABLE IF EXISTS `migrations`;
-CREATE TABLE IF NOT EXISTS `migrations` (
+CREATE TABLE `migrations` (
   `migration` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `batch` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -835,8 +835,8 @@ INSERT INTO `migrations` (`migration`, `batch`) VALUES
 --
 
 DROP TABLE IF EXISTS `news`;
-CREATE TABLE IF NOT EXISTS `news` (
-  `id` int(10) unsigned NOT NULL,
+CREATE TABLE `news` (
+  `id` int(10) UNSIGNED NOT NULL,
   `domain` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `date` date NOT NULL,
   `title` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
@@ -850,7 +850,7 @@ CREATE TABLE IF NOT EXISTS `news` (
   `created_by` int(11) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dump dei dati per la tabella `news`
@@ -867,8 +867,8 @@ INSERT INTO `news` (`id`, `domain`, `date`, `title`, `description`, `slug`, `doc
 --
 
 DROP TABLE IF EXISTS `newsletters`;
-CREATE TABLE IF NOT EXISTS `newsletters` (
-  `id` int(10) unsigned NOT NULL,
+CREATE TABLE `newsletters` (
+  `id` int(10) UNSIGNED NOT NULL,
   `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `email` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `sort` int(11) NOT NULL,
@@ -885,9 +885,9 @@ CREATE TABLE IF NOT EXISTS `newsletters` (
 --
 
 DROP TABLE IF EXISTS `news_tag`;
-CREATE TABLE IF NOT EXISTS `news_tag` (
-  `news_id` int(10) unsigned NOT NULL,
-  `tag_id` int(10) unsigned NOT NULL,
+CREATE TABLE `news_tag` (
+  `news_id` int(10) UNSIGNED NOT NULL,
+  `tag_id` int(10) UNSIGNED NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -908,9 +908,9 @@ INSERT INTO `news_tag` (`news_id`, `tag_id`, `created_at`, `updated_at`) VALUES
 --
 
 DROP TABLE IF EXISTS `news_translations`;
-CREATE TABLE IF NOT EXISTS `news_translations` (
-  `id` int(10) unsigned NOT NULL,
-  `news_id` int(10) unsigned NOT NULL,
+CREATE TABLE `news_translations` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `news_id` int(10) UNSIGNED NOT NULL,
   `locale` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `title` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `description` text COLLATE utf8_unicode_ci NOT NULL,
@@ -924,7 +924,7 @@ CREATE TABLE IF NOT EXISTS `news_translations` (
   `update_by` int(11) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dump dei dati per la tabella `news_translations`
@@ -943,7 +943,7 @@ INSERT INTO `news_translations` (`id`, `news_id`, `locale`, `title`, `descriptio
 --
 
 DROP TABLE IF EXISTS `password_resets`;
-CREATE TABLE IF NOT EXISTS `password_resets` (
+CREATE TABLE `password_resets` (
   `email` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `token` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
@@ -956,8 +956,8 @@ CREATE TABLE IF NOT EXISTS `password_resets` (
 --
 
 DROP TABLE IF EXISTS `permissions`;
-CREATE TABLE IF NOT EXISTS `permissions` (
-  `id` int(10) unsigned NOT NULL,
+CREATE TABLE `permissions` (
+  `id` int(10) UNSIGNED NOT NULL,
   `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `display_name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `description` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
@@ -972,9 +972,9 @@ CREATE TABLE IF NOT EXISTS `permissions` (
 --
 
 DROP TABLE IF EXISTS `permission_role`;
-CREATE TABLE IF NOT EXISTS `permission_role` (
-  `permission_id` int(10) unsigned NOT NULL,
-  `role_id` int(10) unsigned NOT NULL
+CREATE TABLE `permission_role` (
+  `permission_id` int(10) UNSIGNED NOT NULL,
+  `role_id` int(10) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
@@ -984,14 +984,14 @@ CREATE TABLE IF NOT EXISTS `permission_role` (
 --
 
 DROP TABLE IF EXISTS `products`;
-CREATE TABLE IF NOT EXISTS `products` (
-  `id` int(10) unsigned NOT NULL,
-  `category_id` int(10) unsigned DEFAULT NULL,
+CREATE TABLE `products` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `category_id` int(10) UNSIGNED DEFAULT NULL,
   `title` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `subtitle` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `description` text COLLATE utf8_unicode_ci NOT NULL,
   `slug` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `image` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `image` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `doc` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `video` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `sort` int(11) NOT NULL,
@@ -1002,7 +1002,7 @@ CREATE TABLE IF NOT EXISTS `products` (
   `created_by` int(11) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dump dei dati per la tabella `products`
@@ -1024,9 +1024,9 @@ INSERT INTO `products` (`id`, `category_id`, `title`, `subtitle`, `description`,
 --
 
 DROP TABLE IF EXISTS `product_models`;
-CREATE TABLE IF NOT EXISTS `product_models` (
-  `id` int(10) unsigned NOT NULL,
-  `product_id` int(10) unsigned NOT NULL,
+CREATE TABLE `product_models` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `product_id` int(10) UNSIGNED NOT NULL,
   `title` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `description` text COLLATE utf8_unicode_ci NOT NULL,
   `image` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
@@ -1044,14 +1044,14 @@ CREATE TABLE IF NOT EXISTS `product_models` (
 --
 
 DROP TABLE IF EXISTS `product_model_translations`;
-CREATE TABLE IF NOT EXISTS `product_model_translations` (
-  `id` int(10) unsigned NOT NULL,
+CREATE TABLE `product_model_translations` (
+  `id` int(10) UNSIGNED NOT NULL,
   `product_model_id` int(10) NOT NULL,
   `locale` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `title` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `description` text COLLATE utf8_unicode_ci NOT NULL,
-  `created_by` int(10) unsigned NOT NULL,
-  `update_by` int(10) unsigned NOT NULL,
+  `created_by` int(10) UNSIGNED NOT NULL,
+  `update_by` int(10) UNSIGNED NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -1063,9 +1063,9 @@ CREATE TABLE IF NOT EXISTS `product_model_translations` (
 --
 
 DROP TABLE IF EXISTS `product_translations`;
-CREATE TABLE IF NOT EXISTS `product_translations` (
-  `id` int(10) unsigned NOT NULL,
-  `product_id` int(10) unsigned NOT NULL,
+CREATE TABLE `product_translations` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `product_id` int(10) UNSIGNED NOT NULL,
   `locale` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `title` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `subtitle` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
@@ -1074,11 +1074,11 @@ CREATE TABLE IF NOT EXISTS `product_translations` (
   `seo_title` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `seo_description` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `seo_keywords` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `created_by` int(10) unsigned NOT NULL,
-  `update_by` int(10) unsigned NOT NULL,
+  `created_by` int(10) UNSIGNED NOT NULL,
+  `update_by` int(10) UNSIGNED NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dump dei dati per la tabella `product_translations`
@@ -1107,7 +1107,7 @@ INSERT INTO `product_translations` (`id`, `product_id`, `locale`, `title`, `subt
 --
 
 DROP TABLE IF EXISTS `provinces`;
-CREATE TABLE IF NOT EXISTS `provinces` (
+CREATE TABLE `provinces` (
   `id` int(10) NOT NULL,
   `country_id` int(8) NOT NULL,
   `state_id` int(8) NOT NULL,
@@ -1115,7 +1115,7 @@ CREATE TABLE IF NOT EXISTS `provinces` (
   `code` varchar(32) NOT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL
-) ENGINE=MyISAM AUTO_INCREMENT=111 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
 -- Dump dei dati per la tabella `provinces`
@@ -1164,7 +1164,7 @@ INSERT INTO `provinces` (`id`, `country_id`, `state_id`, `title`, `code`, `creat
 (40, 109, 3, 'Imperia', 'IM', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (41, 109, 14, 'Isernia', 'IS', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (42, 109, 3, 'La Spezia', 'SP', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(43, 109, 13, 'L''Aquila', 'AQ', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(43, 109, 13, 'L\'Aquila', 'AQ', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (44, 109, 9, 'Latina', 'LT', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (45, 109, 16, 'Lecce', 'LE', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (46, 109, 7, 'Lecco', 'LC', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
@@ -1240,14 +1240,14 @@ INSERT INTO `provinces` (`id`, `country_id`, `state_id`, `title`, `code`, `creat
 --
 
 DROP TABLE IF EXISTS `roles`;
-CREATE TABLE IF NOT EXISTS `roles` (
-  `id` int(10) unsigned NOT NULL,
+CREATE TABLE `roles` (
+  `id` int(10) UNSIGNED NOT NULL,
   `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `display_name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `description` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dump dei dati per la tabella `roles`
@@ -1266,9 +1266,9 @@ INSERT INTO `roles` (`id`, `name`, `display_name`, `description`, `created_at`, 
 --
 
 DROP TABLE IF EXISTS `role_adminuser`;
-CREATE TABLE IF NOT EXISTS `role_adminuser` (
-  `user_id` int(10) unsigned NOT NULL,
-  `role_id` int(10) unsigned NOT NULL
+CREATE TABLE `role_adminuser` (
+  `user_id` int(10) UNSIGNED NOT NULL,
+  `role_id` int(10) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
@@ -1285,15 +1285,15 @@ INSERT INTO `role_adminuser` (`user_id`, `role_id`) VALUES
 --
 
 DROP TABLE IF EXISTS `settings`;
-CREATE TABLE IF NOT EXISTS `settings` (
-  `id` int(10) unsigned NOT NULL,
+CREATE TABLE `settings` (
+  `id` int(10) UNSIGNED NOT NULL,
   `key` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `value` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `description` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `domain` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dump dei dati per la tabella `settings`
@@ -1311,8 +1311,8 @@ INSERT INTO `settings` (`id`, `key`, `value`, `description`, `domain`, `created_
 --
 
 DROP TABLE IF EXISTS `socials`;
-CREATE TABLE IF NOT EXISTS `socials` (
-  `id` int(10) unsigned NOT NULL,
+CREATE TABLE `socials` (
+  `id` int(10) UNSIGNED NOT NULL,
   `title` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `description` text COLLATE utf8_unicode_ci,
   `icon` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
@@ -1323,7 +1323,7 @@ CREATE TABLE IF NOT EXISTS `socials` (
   `created_by` int(11) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dump dei dati per la tabella `socials`
@@ -1341,21 +1341,21 @@ INSERT INTO `socials` (`id`, `title`, `description`, `icon`, `image`, `link`, `s
 --
 
 DROP TABLE IF EXISTS `states`;
-CREATE TABLE IF NOT EXISTS `states` (
+CREATE TABLE `states` (
   `id` int(10) NOT NULL,
   `country_id` int(8) NOT NULL,
   `title` varchar(255) NOT NULL,
   `zone` varchar(32) NOT NULL,
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL
-) ENGINE=MyISAM AUTO_INCREMENT=21 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
 -- Dump dei dati per la tabella `states`
 --
 
 INSERT INTO `states` (`id`, `country_id`, `title`, `zone`, `created_at`, `updated_at`) VALUES
-(1, 109, 'Valle d''Aosta', 'north', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(1, 109, 'Valle d\'Aosta', 'north', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (2, 109, 'Piemonte', 'north', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (3, 109, 'Liguria', 'north', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (4, 109, 'Friuli Venezia Giulia', 'north', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
@@ -1383,15 +1383,15 @@ INSERT INTO `states` (`id`, `country_id`, `title`, `zone`, `created_at`, `update
 --
 
 DROP TABLE IF EXISTS `tags`;
-CREATE TABLE IF NOT EXISTS `tags` (
-  `id` int(10) unsigned NOT NULL,
+CREATE TABLE `tags` (
+  `id` int(10) UNSIGNED NOT NULL,
   `title` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `slug` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `created_by` int(10) unsigned NOT NULL,
-  `update_by` int(10) unsigned NOT NULL,
+  `created_by` int(10) UNSIGNED NOT NULL,
+  `update_by` int(10) UNSIGNED NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dump dei dati per la tabella `tags`
@@ -1409,14 +1409,14 @@ INSERT INTO `tags` (`id`, `title`, `slug`, `created_by`, `update_by`, `created_a
 --
 
 DROP TABLE IF EXISTS `tag_translations`;
-CREATE TABLE IF NOT EXISTS `tag_translations` (
-  `id` int(10) unsigned NOT NULL,
-  `tag_id` int(10) unsigned NOT NULL,
+CREATE TABLE `tag_translations` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `tag_id` int(10) UNSIGNED NOT NULL,
   `locale` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `title` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dump dei dati per la tabella `tag_translations`
@@ -1437,8 +1437,8 @@ INSERT INTO `tag_translations` (`id`, `tag_id`, `locale`, `title`, `created_at`,
 --
 
 DROP TABLE IF EXISTS `users`;
-CREATE TABLE IF NOT EXISTS `users` (
-  `id` int(10) unsigned NOT NULL,
+CREATE TABLE `users` (
+  `id` int(10) UNSIGNED NOT NULL,
   `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `email` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `password` varchar(60) COLLATE utf8_unicode_ci NOT NULL,
@@ -1447,7 +1447,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `is_active` tinyint(4) NOT NULL DEFAULT '1'
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dump dei dati per la tabella `users`
@@ -1457,367 +1457,400 @@ INSERT INTO `users` (`id`, `name`, `email`, `password`, `real_password`, `rememb
 (5, 'marco', 'marco@magutti.com', '$2y$10$pF7Zk02f5U8uLsTwwlMOo.yyofFmWy3yOVdAvwC5msJeoyQ0tTVU6', 'password', 'tMYff35pBQlexvQvpCm81WNGQAHVGNQkFCgJPw9Pskgu9MVOaQMwCxVaIpMy', '2017-01-03 14:37:35', '2017-01-03 14:42:57', 1);
 
 --
--- Indexes for dumped tables
+-- Indici per le tabelle scaricate
 --
 
 --
--- Indexes for table `adminusers`
+-- Indici per le tabelle `adminusers`
 --
 ALTER TABLE `adminusers`
-  ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `users_email_unique` (`email`);
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `users_email_unique` (`email`);
 
 --
--- Indexes for table `articles`
+-- Indici per le tabelle `articles`
 --
 ALTER TABLE `articles`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `article_translations`
+-- Indici per le tabelle `article_translations`
 --
 ALTER TABLE `article_translations`
-  ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `article_translations_article_id_locale_unique` (`article_id`,`locale`), ADD KEY `article_translations_locale_index` (`locale`);
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `article_translations_article_id_locale_unique` (`article_id`,`locale`),
+  ADD KEY `article_translations_locale_index` (`locale`);
 
 --
--- Indexes for table `attributes`
+-- Indici per le tabelle `attributes`
 --
 ALTER TABLE `attributes`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `attribute_translations`
+-- Indici per le tabelle `attribute_translations`
 --
 ALTER TABLE `attribute_translations`
-  ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `attribute_translations_attribute_id_locale_unique` (`attribute_id`,`locale`), ADD KEY `attribute_translations_locale_index` (`locale`);
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `attribute_translations_attribute_id_locale_unique` (`attribute_id`,`locale`),
+  ADD KEY `attribute_translations_locale_index` (`locale`);
 
 --
--- Indexes for table `categories`
+-- Indici per le tabelle `categories`
 --
 ALTER TABLE `categories`
-  ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `categories_slug_unique` (`slug`);
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `categories_slug_unique` (`slug`);
 
 --
--- Indexes for table `category_translations`
+-- Indici per le tabelle `category_translations`
 --
 ALTER TABLE `category_translations`
-  ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `categories_translations_category_id_locale_unique` (`category_id`,`locale`), ADD KEY `categories_translations_locale_index` (`locale`);
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `categories_translations_category_id_locale_unique` (`category_id`,`locale`),
+  ADD KEY `categories_translations_locale_index` (`locale`);
 
 --
--- Indexes for table `contacts`
+-- Indici per le tabelle `contacts`
 --
 ALTER TABLE `contacts`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `countries`
+-- Indici per le tabelle `countries`
 --
 ALTER TABLE `countries`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `domains`
+-- Indici per le tabelle `domains`
 --
 ALTER TABLE `domains`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `domain_translations`
+-- Indici per le tabelle `domain_translations`
 --
 ALTER TABLE `domain_translations`
-  ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `domains_translations_domain_id_locale_unique` (`domain_id`,`locale`), ADD KEY `domains_translations_locale_index` (`locale`);
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `domains_translations_domain_id_locale_unique` (`domain_id`,`locale`),
+  ADD KEY `domains_translations_locale_index` (`locale`);
 
 --
--- Indexes for table `hpsliders`
+-- Indici per le tabelle `hpsliders`
 --
 ALTER TABLE `hpsliders`
-  ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `hpsliders_slug_unique` (`slug`);
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `hpsliders_slug_unique` (`slug`);
 
 --
--- Indexes for table `media`
+-- Indici per le tabelle `media`
 --
 ALTER TABLE `media`
-  ADD PRIMARY KEY (`id`), ADD KEY `media_model_id_model_type_index` (`model_id`,`model_type`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `media_model_id_model_type_index` (`model_id`,`model_type`);
 
 --
--- Indexes for table `media_translations`
+-- Indici per le tabelle `media_translations`
 --
 ALTER TABLE `media_translations`
-  ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `media_translations_media_id_locale_unique` (`media_id`,`locale`), ADD KEY `media_translations_locale_index` (`locale`);
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `media_translations_media_id_locale_unique` (`media_id`,`locale`),
+  ADD KEY `media_translations_locale_index` (`locale`);
 
 --
--- Indexes for table `news`
+-- Indici per le tabelle `news`
 --
 ALTER TABLE `news`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `newsletters`
+-- Indici per le tabelle `newsletters`
 --
 ALTER TABLE `newsletters`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `news_tag`
+-- Indici per le tabelle `news_tag`
 --
 ALTER TABLE `news_tag`
-  ADD KEY `news_tag_news_id_index` (`news_id`), ADD KEY `news_tag_tag_id_index` (`tag_id`);
+  ADD KEY `news_tag_news_id_index` (`news_id`),
+  ADD KEY `news_tag_tag_id_index` (`tag_id`);
 
 --
--- Indexes for table `news_translations`
+-- Indici per le tabelle `news_translations`
 --
 ALTER TABLE `news_translations`
-  ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `news_translations_news_id_locale_unique` (`news_id`,`locale`), ADD KEY `news_translations_locale_index` (`locale`);
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `news_translations_news_id_locale_unique` (`news_id`,`locale`),
+  ADD KEY `news_translations_locale_index` (`locale`);
 
 --
--- Indexes for table `password_resets`
+-- Indici per le tabelle `password_resets`
 --
 ALTER TABLE `password_resets`
-  ADD KEY `password_resets_email_index` (`email`), ADD KEY `password_resets_token_index` (`token`);
+  ADD KEY `password_resets_email_index` (`email`),
+  ADD KEY `password_resets_token_index` (`token`);
 
 --
--- Indexes for table `permissions`
+-- Indici per le tabelle `permissions`
 --
 ALTER TABLE `permissions`
-  ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `permissions_name_unique` (`name`);
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `permissions_name_unique` (`name`);
 
 --
--- Indexes for table `permission_role`
+-- Indici per le tabelle `permission_role`
 --
 ALTER TABLE `permission_role`
-  ADD PRIMARY KEY (`permission_id`,`role_id`), ADD KEY `permission_role_role_id_foreign` (`role_id`);
+  ADD PRIMARY KEY (`permission_id`,`role_id`),
+  ADD KEY `permission_role_role_id_foreign` (`role_id`);
 
 --
--- Indexes for table `products`
+-- Indici per le tabelle `products`
 --
 ALTER TABLE `products`
-  ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `products_slug_unique` (`slug`);
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `products_slug_unique` (`slug`);
 
 --
--- Indexes for table `product_models`
+-- Indici per le tabelle `product_models`
 --
 ALTER TABLE `product_models`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `product_model_translations`
+-- Indici per le tabelle `product_model_translations`
 --
 ALTER TABLE `product_model_translations`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `product_translations`
+-- Indici per le tabelle `product_translations`
 --
 ALTER TABLE `product_translations`
-  ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `products_translations_product_id_locale_unique` (`product_id`,`locale`), ADD KEY `products_translations_locale_index` (`locale`);
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `products_translations_product_id_locale_unique` (`product_id`,`locale`),
+  ADD KEY `products_translations_locale_index` (`locale`);
 
 --
--- Indexes for table `provinces`
+-- Indici per le tabelle `provinces`
 --
 ALTER TABLE `provinces`
-  ADD PRIMARY KEY (`id`), ADD KEY `id_region` (`state_id`), ADD KEY `id_country` (`country_id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id_region` (`state_id`),
+  ADD KEY `id_country` (`country_id`);
 
 --
--- Indexes for table `roles`
+-- Indici per le tabelle `roles`
 --
 ALTER TABLE `roles`
-  ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `roles_name_unique` (`name`);
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `roles_name_unique` (`name`);
 
 --
--- Indexes for table `role_adminuser`
+-- Indici per le tabelle `role_adminuser`
 --
 ALTER TABLE `role_adminuser`
-  ADD PRIMARY KEY (`user_id`,`role_id`), ADD KEY `role_user_role_id_foreign` (`role_id`);
+  ADD PRIMARY KEY (`user_id`,`role_id`),
+  ADD KEY `role_user_role_id_foreign` (`role_id`);
 
 --
--- Indexes for table `settings`
+-- Indici per le tabelle `settings`
 --
 ALTER TABLE `settings`
-  ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `settings_key_unique` (`key`), ADD KEY `settings_id_index` (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `settings_key_unique` (`key`),
+  ADD KEY `settings_id_index` (`id`);
 
 --
--- Indexes for table `socials`
+-- Indici per le tabelle `socials`
 --
 ALTER TABLE `socials`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `states`
+-- Indici per le tabelle `states`
 --
 ALTER TABLE `states`
-  ADD PRIMARY KEY (`id`), ADD KEY `id_country` (`country_id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id_country` (`country_id`);
 
 --
--- Indexes for table `tags`
+-- Indici per le tabelle `tags`
 --
 ALTER TABLE `tags`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `tag_translations`
+-- Indici per le tabelle `tag_translations`
 --
 ALTER TABLE `tag_translations`
-  ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `tag_translations_tag_id_locale_unique` (`tag_id`,`locale`), ADD KEY `tag_translations_locale_index` (`locale`);
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `tag_translations_tag_id_locale_unique` (`tag_id`,`locale`),
+  ADD KEY `tag_translations_locale_index` (`locale`);
 
 --
--- Indexes for table `users`
+-- Indici per le tabelle `users`
 --
 ALTER TABLE `users`
-  ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `users_email_unique` (`email`);
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `users_email_unique` (`email`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT per le tabelle scaricate
 --
 
 --
--- AUTO_INCREMENT for table `adminusers`
+-- AUTO_INCREMENT per la tabella `adminusers`
 --
 ALTER TABLE `adminusers`
-  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
--- AUTO_INCREMENT for table `articles`
+-- AUTO_INCREMENT per la tabella `articles`
 --
 ALTER TABLE `articles`
-  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=15;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 --
--- AUTO_INCREMENT for table `article_translations`
+-- AUTO_INCREMENT per la tabella `article_translations`
 --
 ALTER TABLE `article_translations`
-  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=31;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 --
--- AUTO_INCREMENT for table `attributes`
+-- AUTO_INCREMENT per la tabella `attributes`
 --
 ALTER TABLE `attributes`
-  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT for table `attribute_translations`
+-- AUTO_INCREMENT per la tabella `attribute_translations`
 --
 ALTER TABLE `attribute_translations`
-  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT for table `categories`
+-- AUTO_INCREMENT per la tabella `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
--- AUTO_INCREMENT for table `category_translations`
+-- AUTO_INCREMENT per la tabella `category_translations`
 --
 ALTER TABLE `category_translations`
-  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
--- AUTO_INCREMENT for table `contacts`
+-- AUTO_INCREMENT per la tabella `contacts`
 --
 ALTER TABLE `contacts`
-  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT for table `countries`
+-- AUTO_INCREMENT per la tabella `countries`
 --
 ALTER TABLE `countries`
-  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=248;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=248;
 --
--- AUTO_INCREMENT for table `domains`
+-- AUTO_INCREMENT per la tabella `domains`
 --
 ALTER TABLE `domains`
-  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=22;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 --
--- AUTO_INCREMENT for table `domain_translations`
+-- AUTO_INCREMENT per la tabella `domain_translations`
 --
 ALTER TABLE `domain_translations`
-  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=123;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=123;
 --
--- AUTO_INCREMENT for table `hpsliders`
+-- AUTO_INCREMENT per la tabella `hpsliders`
 --
 ALTER TABLE `hpsliders`
-  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
--- AUTO_INCREMENT for table `media`
+-- AUTO_INCREMENT per la tabella `media`
 --
 ALTER TABLE `media`
-  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=100;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=100;
 --
--- AUTO_INCREMENT for table `media_translations`
+-- AUTO_INCREMENT per la tabella `media_translations`
 --
 ALTER TABLE `media_translations`
-  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=155;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=155;
 --
--- AUTO_INCREMENT for table `news`
+-- AUTO_INCREMENT per la tabella `news`
 --
 ALTER TABLE `news`
-  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
--- AUTO_INCREMENT for table `newsletters`
+-- AUTO_INCREMENT per la tabella `newsletters`
 --
 ALTER TABLE `newsletters`
-  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT for table `news_translations`
+-- AUTO_INCREMENT per la tabella `news_translations`
 --
 ALTER TABLE `news_translations`
-  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
--- AUTO_INCREMENT for table `permissions`
+-- AUTO_INCREMENT per la tabella `permissions`
 --
 ALTER TABLE `permissions`
-  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT for table `products`
+-- AUTO_INCREMENT per la tabella `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=15;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 --
--- AUTO_INCREMENT for table `product_models`
+-- AUTO_INCREMENT per la tabella `product_models`
 --
 ALTER TABLE `product_models`
-  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT for table `product_model_translations`
+-- AUTO_INCREMENT per la tabella `product_model_translations`
 --
 ALTER TABLE `product_model_translations`
-  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT for table `product_translations`
+-- AUTO_INCREMENT per la tabella `product_translations`
 --
 ALTER TABLE `product_translations`
-  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=17;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 --
--- AUTO_INCREMENT for table `provinces`
+-- AUTO_INCREMENT per la tabella `provinces`
 --
 ALTER TABLE `provinces`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=111;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=111;
 --
--- AUTO_INCREMENT for table `roles`
+-- AUTO_INCREMENT per la tabella `roles`
 --
 ALTER TABLE `roles`
-  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=8;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
--- AUTO_INCREMENT for table `settings`
+-- AUTO_INCREMENT per la tabella `settings`
 --
 ALTER TABLE `settings`
-  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
--- AUTO_INCREMENT for table `socials`
+-- AUTO_INCREMENT per la tabella `socials`
 --
 ALTER TABLE `socials`
-  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
--- AUTO_INCREMENT for table `states`
+-- AUTO_INCREMENT per la tabella `states`
 --
 ALTER TABLE `states`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=21;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 --
--- AUTO_INCREMENT for table `tags`
+-- AUTO_INCREMENT per la tabella `tags`
 --
 ALTER TABLE `tags`
-  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
--- AUTO_INCREMENT for table `tag_translations`
+-- AUTO_INCREMENT per la tabella `tag_translations`
 --
 ALTER TABLE `tag_translations`
-  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
--- AUTO_INCREMENT for table `users`
+-- AUTO_INCREMENT per la tabella `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- Limiti per le tabelle scaricate
 --
@@ -1826,64 +1859,64 @@ ALTER TABLE `users`
 -- Limiti per la tabella `article_translations`
 --
 ALTER TABLE `article_translations`
-ADD CONSTRAINT `article_translations_article_id_foreign` FOREIGN KEY (`article_id`) REFERENCES `articles` (`id`) ON DELETE CASCADE;
+  ADD CONSTRAINT `article_translations_article_id_foreign` FOREIGN KEY (`article_id`) REFERENCES `articles` (`id`) ON DELETE CASCADE;
 
 --
 -- Limiti per la tabella `attribute_translations`
 --
 ALTER TABLE `attribute_translations`
-ADD CONSTRAINT `attribute_translations_attribute_id_foreign` FOREIGN KEY (`attribute_id`) REFERENCES `attributes` (`id`) ON DELETE CASCADE;
+  ADD CONSTRAINT `attribute_translations_attribute_id_foreign` FOREIGN KEY (`attribute_id`) REFERENCES `attributes` (`id`) ON DELETE CASCADE;
 
 --
 -- Limiti per la tabella `domain_translations`
 --
 ALTER TABLE `domain_translations`
-ADD CONSTRAINT `domains_translations_domain_id_foreign` FOREIGN KEY (`domain_id`) REFERENCES `domains` (`id`) ON DELETE CASCADE;
+  ADD CONSTRAINT `domains_translations_domain_id_foreign` FOREIGN KEY (`domain_id`) REFERENCES `domains` (`id`) ON DELETE CASCADE;
 
 --
 -- Limiti per la tabella `media_translations`
 --
 ALTER TABLE `media_translations`
-ADD CONSTRAINT `media_translations_media_id_foreign` FOREIGN KEY (`media_id`) REFERENCES `media` (`id`) ON DELETE CASCADE;
+  ADD CONSTRAINT `media_translations_media_id_foreign` FOREIGN KEY (`media_id`) REFERENCES `media` (`id`) ON DELETE CASCADE;
 
 --
 -- Limiti per la tabella `news_tag`
 --
 ALTER TABLE `news_tag`
-ADD CONSTRAINT `news_tag_news_id_foreign` FOREIGN KEY (`news_id`) REFERENCES `news` (`id`) ON DELETE CASCADE,
-ADD CONSTRAINT `news_tag_tag_id_foreign` FOREIGN KEY (`tag_id`) REFERENCES `tags` (`id`) ON DELETE CASCADE;
+  ADD CONSTRAINT `news_tag_news_id_foreign` FOREIGN KEY (`news_id`) REFERENCES `news` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `news_tag_tag_id_foreign` FOREIGN KEY (`tag_id`) REFERENCES `tags` (`id`) ON DELETE CASCADE;
 
 --
 -- Limiti per la tabella `news_translations`
 --
 ALTER TABLE `news_translations`
-ADD CONSTRAINT `news_translations_news_id_foreign` FOREIGN KEY (`news_id`) REFERENCES `news` (`id`) ON DELETE CASCADE;
+  ADD CONSTRAINT `news_translations_news_id_foreign` FOREIGN KEY (`news_id`) REFERENCES `news` (`id`) ON DELETE CASCADE;
 
 --
 -- Limiti per la tabella `permission_role`
 --
 ALTER TABLE `permission_role`
-ADD CONSTRAINT `permission_role_permission_id_foreign` FOREIGN KEY (`permission_id`) REFERENCES `permissions` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-ADD CONSTRAINT `permission_role_role_id_foreign` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `permission_role_permission_id_foreign` FOREIGN KEY (`permission_id`) REFERENCES `permissions` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `permission_role_role_id_foreign` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Limiti per la tabella `product_translations`
 --
 ALTER TABLE `product_translations`
-ADD CONSTRAINT `products_translations_product_id_foreign` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`) ON DELETE CASCADE;
+  ADD CONSTRAINT `products_translations_product_id_foreign` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`) ON DELETE CASCADE;
 
 --
 -- Limiti per la tabella `role_adminuser`
 --
 ALTER TABLE `role_adminuser`
-ADD CONSTRAINT `role_user_role_id_foreign` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-ADD CONSTRAINT `role_user_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `adminusers` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `role_user_role_id_foreign` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `role_user_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `adminusers` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Limiti per la tabella `tag_translations`
 --
 ALTER TABLE `tag_translations`
-ADD CONSTRAINT `tag_translations_tag_id_foreign` FOREIGN KEY (`tag_id`) REFERENCES `tags` (`id`) ON DELETE CASCADE;
+  ADD CONSTRAINT `tag_translations_tag_id_foreign` FOREIGN KEY (`tag_id`) REFERENCES `tags` (`id`) ON DELETE CASCADE;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

@@ -35,7 +35,7 @@ class AdminPagesController extends Controller
     public function init($model)
     {
         $this->model = $model;
-        $this->config = config('laraCms.admin.list.section.' . $this->model);
+        $this->config = config('maguttiCms.admin.list.section.' . $this->model);
         $this->models = strtolower(str_plural($this->config['model']));
         $this->modelClass = 'App\\' . $this->config['model'];
     }
@@ -73,7 +73,7 @@ class AdminPagesController extends Controller
             $objBuilder  = $models::orderby($this->sort, $this->sortType);
         }
         $this->searchFilter( $objBuilder );
-        $articles = $objBuilder->paginate(config('laraCms.admin.list.item_per_pages'));
+        $articles = $objBuilder->paginate(config('maguttiCms.admin.list.item_per_pages'));
         return view('admin.list', ['articles' => $articles, 'pageConfig' => $this->config]);
     }
 
@@ -157,7 +157,6 @@ class AdminPagesController extends Controller
     {
         $this->init($model);
         $this->request = $request;
-        $config = config('laraCms.admin.list.section.' . $model);
         $model  = new  $this->modelClass;
         $article = new $model;
         // input data Handler
