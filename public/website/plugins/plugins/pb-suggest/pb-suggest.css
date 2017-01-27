@@ -1,0 +1,27 @@
+.pbs-wrapper {position: relative;}
+
+.pbs-results {
+	position: absolute;
+	left: 0;
+	/*right: 0;*/
+	top: 100%;
+	background-color: white;
+	border: 1px solid #ccc;
+	display: none;
+	z-index: 100;
+	max-height: 30vh;
+	overflow-y: scroll;
+}
+
+.pbs-input:focus+.pbs-results,
+.pbs-results:hover {display: block;}
+
+.pbs-results .pbs-standard,
+.pbs-results a {
+	display: block;
+	padding: 5px;
+}
+
+.pbs-key.active {
+	background-color: #eee;
+}

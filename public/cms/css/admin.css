@@ -2,7 +2,7 @@
 
 [Layout Stylesheet]
 
-	Project:	  maguttiCms
+	Project:	  laraCms
 	Version:	   1.0
 	Last change:
 	Assigned to:	Marco Asperti
@@ -38,10 +38,14 @@
 body {
     font-size: 12px;
     smin-height: 2000px;
-    padding-top: 100px;
+    padding-top: 50px;
     color: #333333;
     font-family: 'Open Sans', sans-serif;
 	margin-left: 250px;
+}
+
+body.no-margin {
+	margin-left: 0 !important;
 }
 
 body.expanded {
@@ -324,9 +328,7 @@ form#edit .small-input {
 }
 
 .bottomonly-shadow {
-    -webkit-box-shadow: 0 5px 6px -6px #555;
-    -moz-box-shadow: 0 5px 6px -6px #555;
-    box-shadow: 0 5px 6px -6px #555;
+    box-shadow: 0 -5px 10px 5px rgba(0, 0, 0, 0.3);
 }
 
 .navbar-fixed-top {
@@ -489,16 +491,10 @@ form#edit .small-input {
 
 #toolbar_top {
     background-color: #fff;
-    border: 0px solid #ccc;
     padding: 8px 15px;
     height: 60px;
     background-color: #F8F8F8;
-    position: fixed;
-    right: 0;
-    left: 0;
-    z-index: 200;
     top: 50px;
-
 }
 
 #toolbar_cerca {
@@ -759,7 +755,7 @@ form#edit .small-input {
 }
 
 #sidebar .navbar-nav > li > a:hover {
-	background-color: #333;
+	background-color: #555;
 }
 
 .site-link,
@@ -771,7 +767,7 @@ form#edit .small-input {
 #sidebar .navbar-nav > .active > a,
 #sidebar .navbar-nav > .active > a:focus,
 #sidebar .navbar-nav > .active > a:hover {
-	background-color: #333;
+	background-color: #444;
 }
 
 #sidebar .navbar-nav > .open > a,
