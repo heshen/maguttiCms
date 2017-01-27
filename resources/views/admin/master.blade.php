@@ -22,12 +22,10 @@
         var    _CURMODEL 	 = "{!! ( isset($pageConfig['model']) ? $pageConfig['model'] : "" ) !!}";
 	</script>
 </head>
-<body>
+<body class="{{(in_array($view_name, ['admin-login', 'auth-password']))? 'no-margin': ''}}">
 @include('admin.common.navbar')
 
-<div class="container-full mt25">
-	@yield('content')
-</div>
+@yield('content')
 </body>
 <!-- Latest compiled and minified JavaScript -->
 <script src="//ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>

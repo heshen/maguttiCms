@@ -1,5 +1,5 @@
 <div class="sub-navbar">
-	<div class="subnavs bottomonly-shadow pb25" id="toolbar_top">
+	<div id="toolbar_top" class="subnavs bottomonly-shadow pb25" >
 
         <div class="pull-right">
             <div class="btn-group">

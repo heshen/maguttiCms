@@ -10,7 +10,7 @@
     <div class="form-group">
         <div class="col-md-4 col-md-offset-4">
             <label class="control-label">E-Mail </label>
-            <input type="email" class="form-control" name="email" value="userslaracms@gmail.com">
+            <input type="email" class="form-control" name="email" value="">
         </div>
     </div>
     <div class="form-group">

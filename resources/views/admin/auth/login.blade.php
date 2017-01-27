@@ -1,6 +1,6 @@
 @extends('admin.master')
 @section('content')
-	<div class="container-fluid">
+	<div class="container-fluid mv25">
 		<div class="row">
 			<div class="col-md-6  col-lg-6  col-md-offset-2">
 				<div class="pf15 center-block text-center">

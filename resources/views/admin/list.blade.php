@@ -2,9 +2,9 @@
 @section('title', 'Admin Control Panel'.$pageConfig['title'])
 @section('content')
 
+@include('admin.helper.toolbar_top')
 
-<div class="container col-md-12">
-	@include('admin.helper.toolbar_top')
+<div class="container-fluid mv25">
 	@include('admin.helper.search_list')
 	<div class="panel panel-default">
 		<div class="panel-heading pf5">

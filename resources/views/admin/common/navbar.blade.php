@@ -15,7 +15,7 @@
             </a>
         </div>
 
-        @if($view_name!='admin-login')
+        @if ($view_name != 'admin-login')
 
         <!-- Navbar Right -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -94,7 +94,7 @@
 	                    <li class="site-link">
 	                        <a href="{{ URL::to('/') }}">View Site</a>
 	                    </li>
-	                    <li class="active">
+	                    <li class="dashboard">
 	                        <a href="{{ URL::to('/admin/') }}">DashBoard</a>
 	                    </li>
                         @foreach(config('maguttiCms.admin.list.section') as $section)
