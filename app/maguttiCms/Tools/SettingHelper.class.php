@@ -9,7 +9,7 @@ class SettingHelper {
 
 	/**
      * Static method to retrive
-     * a db config setting
+     * a db config settin
 	 * @param $key
 	 * @return mixed
      */
