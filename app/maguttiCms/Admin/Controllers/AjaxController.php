@@ -1,12 +1,14 @@
 <?php namespace App\MaguttiCms\Admin\Controllers;
 
-use Illuminate\Http\Request;
 
-use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Auth;
-use App\Media;
 use Input;
 use Image;
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
+
+use App\Media;
+use App\MaguttiCms\Tools\UploadManager;
 
 class AjaxController extends Controller
 {
@@ -63,7 +65,7 @@ class AjaxController extends Controller
         if (Input::hasFile($media) && Input::file($media)->isValid()) {
 
             $UM              = new UploadManager;
-            $fileData        = $UM->init($media,$this->request)->store()->getFileDetails();
+            $fileData        = $UM->init($media,$this->request)->storeAjax()->getFileDetails();
             $disk            = "media";
             $destinationPath = $disk.'/' .$fileData['mediaType']; // upload path folder
 
