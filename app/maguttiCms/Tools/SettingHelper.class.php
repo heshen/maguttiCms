@@ -8,14 +8,16 @@
 class SettingHelper {
 
 	/**
+     * Static method to retrive
+     * a db config setting
 	 * @param $key
 	 * @return mixed
      */
-	static public function getOption($key)
-	{
+    static public function getOption($key)
+    {
 
-		$settingObj = Setting::whereKey($key)->first();
-		return $settingObj->value;
-	}
+        $settingObj = Setting::where('Key',$key)->first();
+        return $settingObj->value;
+    }
 
 }	

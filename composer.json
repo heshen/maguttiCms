@@ -6,10 +6,12 @@
     "type": "project",
     "require": {
         "php": ">=5.6.4",
-        "laravel/framework": "5.3.*",
-        "laravelcollective/html": "5.3.*",
-        "hisorange/browser-detect": "2.*",
-        "mcamara/laravel-localization": "1.1.*",
+        "guzzlehttp/guzzle": "~6.0",
+        "laravel/framework": "5.4.*",
+        "laravel/tinker": "~1.0",
+        "laravelcollective/html": "5.4.*",
+        "hisorange/browser-detect": "dev-master",
+        "mcamara/laravel-localization": "1.2.*",
         "zizaco/entrust": "5.2.x-dev",
         "dimsav/laravel-translatable": "^6.0",
         "intervention/image": "^2.3",
@@ -17,11 +19,8 @@
         "artesaos/seotools": "^0.9.2",
         "itsgoingd/clockwork": "~1.12",
         "maatwebsite/excel": "~2.1.0",
-        "predis/predis": "~1.0",
-        "twbs/bootstrap": "^3.3"
-
-
-
+        "spatie/laravel-sitemap": "^2.0",
+        "predis/predis": "~1.0"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
