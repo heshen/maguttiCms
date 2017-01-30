@@ -1107,16 +1107,16 @@
         },
         {
             "name": "league/flysystem",
-            "version": "1.0.33",
+            "version": "1.0.34",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/flysystem.git",
-                "reference": "5c7f98498b12d47f9de90ec9186a90000125777c"
+                "reference": "469ad53c13ea19a0e54e3e5d70f61227ddcc0299"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/5c7f98498b12d47f9de90ec9186a90000125777c",
-                "reference": "5c7f98498b12d47f9de90ec9186a90000125777c",
+                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/469ad53c13ea19a0e54e3e5d70f61227ddcc0299",
+                "reference": "469ad53c13ea19a0e54e3e5d70f61227ddcc0299",
                 "shasum": ""
             },
             "require": {
@@ -1186,7 +1186,7 @@
                 "sftp",
                 "storage"
             ],
-            "time": "2017-01-23T10:32:09+00:00"
+            "time": "2017-01-30T17:41:17+00:00"
         },
         {
             "name": "maatwebsite/excel",
@@ -1257,24 +1257,24 @@
         },
         {
             "name": "mcamara/laravel-localization",
-            "version": "1.2.0",
+            "version": "1.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mcamara/laravel-localization.git",
-                "reference": "63952e0c3120c54f4dc54252d89e0d89b6402550"
+                "reference": "b1dbc8489d84c8d6a2d3a059a17bd21e7d86b833"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mcamara/laravel-localization/zipball/63952e0c3120c54f4dc54252d89e0d89b6402550",
-                "reference": "63952e0c3120c54f4dc54252d89e0d89b6402550",
+                "url": "https://api.github.com/repos/mcamara/laravel-localization/zipball/b1dbc8489d84c8d6a2d3a059a17bd21e7d86b833",
+                "reference": "b1dbc8489d84c8d6a2d3a059a17bd21e7d86b833",
                 "shasum": ""
             },
             "require": {
-                "laravel/framework": "~5.4",
-                "php": ">=5.5.0"
+                "laravel/framework": "5.4.*",
+                "php": ">=5.6.0"
             },
             "require-dev": {
-                "orchestra/testbench": "3.2.*"
+                "orchestra/testbench-browser-kit": "~3.4"
             },
             "type": "library",
             "autoload": {
@@ -1301,7 +1301,7 @@
                 "localization",
                 "php"
             ],
-            "time": "2017-01-27T11:28:04+00:00"
+            "time": "2017-01-30T14:08:59+00:00"
         },
         {
             "name": "mobiledetect/mobiledetectlib",
@@ -3042,7 +3042,7 @@
                 "permission",
                 "roles"
             ],
-            "time": "2016-12-29T06:25:06+00:00"
+            "time": "2016-12-29 06:25:06"
         }
     ],
     "packages-dev": [

@@ -3,7 +3,7 @@ return [
 		'adminusers' => [
 			'first_name' => 'required',
 			'last_name'  => 'required',
-			'email' => 'required|Between:3,64|Email',
+			'email' => 'required|unique:adminusers|Between:3,64|Email',
 			'role' => 'required',
 			'password' => 'alpha_num|min:6|confirmed',
 			'password_confirmation' => 'alpha_num|min:6',
@@ -69,7 +69,7 @@ return [
 		],
 		'users' => [
 			'name' => 'required',
-			'email' => 'required|Between:3,64|Email',
+			'email' => 'required|unique:adminusers|Between:3,64|Email',
 		    'password' => 'alpha_num|min:6|confirmed',
 			'password_confirmation' => 'alpha_num|min:6',
 		],
