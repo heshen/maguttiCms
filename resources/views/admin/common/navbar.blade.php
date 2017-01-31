@@ -92,7 +92,7 @@
 					</div>
 	                <ul class="nav navbar-nav navbar">
 	                    <li class="site-link">
-	                        <a href="{{ URL::to('/') }}">View Site</a>
+	                        <a href="{{ URL::to('/') }}" target="_blank">View Site</a>
 	                    </li>
 	                    <li class="dashboard">
 	                        <a href="{{ URL::to('/admin/') }}">DashBoard</a>
