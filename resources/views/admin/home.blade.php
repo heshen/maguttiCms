@@ -2,7 +2,7 @@
 @section('title', 'Admin Control Panel')
 @section('content')
 
-    <div class="container">
+    <div class="container pt25 mt25">
         <div class="row">
             <div class=" col-xs-6 col-sm-6 col-md-3 col-lg-3 pf5">
                 <div class="btn-icon bck-color-4 text-center color-2 transitioned">
