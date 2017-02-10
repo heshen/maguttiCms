@@ -1,4 +1,4 @@
-<?php namespace App\MaguttiCms\Admin;
+<?php namespace App\LaraCms\Admin;
 
 use Carbon\Carbon;
 use Form;
@@ -7,7 +7,7 @@ use App;
 /**
  * Class AdminForm
  *
- * @package App\MaguttiCms\Admin
+ * @package App\LaraCms\Admin
  */
 class AdminForm {
 
@@ -66,6 +66,16 @@ class AdminForm {
         $cssClassElement = (isset( $this->property['cssClassElement']))?$this->property['cssClassElement'] :' col-md-10';
         $isLangField     = (isset($this->property['lang']) && $this->property['lang']== 1) ? true: false;
         $formElement     = '';
+
+        /**
+         * populate field default value
+         * if the model is empty
+         */
+
+        if(isset( $this->property['default_value']) && empty($this->model->id)){
+            $value  = $this->property['default_value'];
+        }
+
         if( $isLangField  ||  $this->property['display'] != 1 ) { }
         else if (isset($this->property['hidden']) && $this->property['hidden']==1 && $this->property['type'] !='relation') {
             $formElement = Form::hidden($key, $value , array('class' => ' form-control '.$cssClass));
@@ -109,9 +119,12 @@ class AdminForm {
             $cssClassElement  = 'col-md-4';
         }
         else if($this->property['type'] =='relation'  && $this->property['display']== 1) {
+
+
             $objRelation = $this->getRelation();
 
             $selected = ( isset( $this->property['relation_name'] ) && $this->property['relation_name']!='') ? $this->model->{$this->property['relation_name']}->pluck('id')->toArray():'';
+
             $formElement   = $this->getComboRelation( $objRelation,$key,$value,$selected);
         }
         if ( $formElement  && $this->property['type'] =='media') $this->html .= $this->containerMedia($formElement, $cssClassElement,$key);
@@ -123,18 +136,18 @@ class AdminForm {
         // GF_ma gestione campo hidden
         if ( isset($this->property['hidden']) && $this->property['hidden']!=1) {
             $html = "<div class=\"form-group\">";
-                $html .= "<label for=\"" . $this->property['label'] . "\" class=\"col-md-2 control-label\">\n";
-                $html .= $this->property['label'];
-                if (isset($this->property['required']) && $this->property['required'] == '1') $html .= " * ";
-                if (isset($this->property['extraMsg'])) {
-                    if (isset($this->property['extraMsgEnabled'])) {
-                        $html .= "<br><span class=\"help-inline small extraMsg\"> (" . $this->extraMsgHandler() . ")</span> ";
-                    }
+            $html .= "<label for=\"" . $this->property['label'] . "\" class=\"col-md-2 control-label\">\n";
+            $html .= $this->property['label'];
+            if (isset($this->property['required']) && $this->property['required'] == '1') $html .= " * ";
+            if (isset($this->property['extraMsg'])) {
+                if (isset($this->property['extraMsgEnabled'])) {
+                    $html .= "<br><span class=\"help-inline small extraMsg\"> (" . $this->extraMsgHandler() . ")</span> ";
                 }
-                $html .= "</label>\n";
-                $html .= "<div class=\"" . $cssClass . "\">\n";
-                $html .= $formElement;
-                $html .= "</div>";
+            }
+            $html .= "</label>\n";
+            $html .= "<div class=\"" . $cssClass . "\">\n";
+            $html .= $formElement;
+            $html .= "</div>";
             $html .= "</div>\n";
             $html .= "<div class=\"clearfix\"></div>\n";
         }
@@ -145,26 +158,26 @@ class AdminForm {
     function containerMedia($formElement, $cssClass = "", $key) {
         $html = '';
         $html .= "<div class=\"form-group mf0\">";
-            $html.= '<label for="'.$this->property['label'].'" class="col-md-2 control-label">'.$this->property['label']."</label>\n";
-            if(isset( $this->property['requiredField']) ) $html.=$this->property['requiredField']." ";
-            if(isset( $this->property['extraMsg']) ){
-                if(isset($this->property['extraMsgEnabled']) )$this->extraMsgHandler();
-                //$html.= "<span id=\"".$this->formElement."_extraMsg\" class=\"help-inline small\"> (".$this->extraMsg.")</span> ";
-            }
-            $html.="<div class=\" mediaContent ".$cssClass."\">\n";
-            $html.= $formElement;
-                if( $this->model->$key!='') {
-                if( $this->property['mediaType']=='Img') $html.="<div class=\"mt10 mr10 mediaBox\"  id=\"box_".$key."_".$this->model->id."\">
+        $html.= '<label for="'.$this->property['label'].'" class="col-md-2 control-label">'.$this->property['label']."</label>\n";
+        if(isset( $this->property['requiredField']) ) $html.=$this->property['requiredField']." ";
+        if(isset( $this->property['extraMsg']) ){
+            if(isset($this->property['extraMsgEnabled']) )$this->extraMsgHandler();
+            //$html.= "<span id=\"".$this->formElement."_extraMsg\" class=\"help-inline small\"> (".$this->extraMsg.")</span> ";
+        }
+        $html.="<div class=\" mediaContent ".$cssClass."\">\n";
+        $html.= $formElement;
+        if( $this->model->$key!='') {
+            if( $this->property['mediaType']=='Img') $html.="<div class=\"mt10 mr10 mediaBox\"  id=\"box_".$key."_".$this->model->id."\">
                                 <img class=\"img-responsive imgEditThumb\" src=\"".ma_get_image_from_repository($this->model->$key)."\">
                                 ".$this->createMediaDeleteBtn( $key,$this->model->id)."</div>\n";
-                else  $html.="<div class=\"mt10 mr10\" id=\"box_".$key."_".$this->model->id."\">
+            else  $html.="<div class=\"mt10 mr10\" id=\"box_".$key."_".$this->model->id."\">
                             <div class=\"btn-group\" role=\"group\" aria-label=\"...\">
-                              <button type=\"button\" class=\"btn btn-primary\">".$this->model->$key."</button>
+                              <a href=\"".ma_get_doc_from_repository($this->model->$key)."\" target=\"_blank\" class=\"btn btn-primary\">".__('admin.label.view')."</a>
                               ".$this->createMediaDeleteBtn( $key,$this->model->id)."</div>
                             </div>\n";
 
-            }
-            $html.="</div>";
+        }
+        $html.="</div>";
         $html.="</div>";
         $html.= '<hr/>';
         return $html;
@@ -185,7 +198,8 @@ class AdminForm {
         $orderField    =  (isset($this->property['order_field']) )? $this->property['order_field']: $this->property['label_key'];
         $order         =  'ASC';
         $query         =  $model::select(); //$relationModel;
-        if(isset($model->translatedAttributes )  )   return  $this->getTranslatableRelation();
+        ;
+        if(isset($model->translatedAttributes )  && in_array($this->property['label_key'],$model->translatedAttributes ) )   return  $this->getTranslatableRelation();
         else {
             /**  filter  condition */
             if(isset($this->property['filter'] )){
@@ -214,11 +228,11 @@ class AdminForm {
         $translationTable = strtolower(snake_case( $this->property['model'] ));
         $a                = ( isset( $this->property['foreign_key'] ) ) ? $this->property['foreign_key'] : 'id';
         $query            = $relationModel::join($translationTable.'_translations as t', 't.'.$translationTable.'_id', '=', $table.'.id')
-                            ->where('locale','it')
-                            ->groupBy($table.'.id')
-                            ->with('translations');
-        if($a!='id') $query->select($table.'.id as id', 't.'.$this->property['label_key'].' as '.$this->property['label_key'],$table.'.value as value' );
-        else $query->select($table.'.id as id', 't.'.$this->property['label_key'].' as '.$this->property['label_key'] );
+            ->where('locale','en')
+            ->groupBy($table.'.id')
+            ->with('translations');
+        if($a!='id') $query->select($table.'.'.$a, $table.'.id', 't.'.$this->property['label_key'].' as '.$this->property['label_key'] );
+        else $query->select($table.'.id', 't.'.$this->property['label_key'].' as '.$this->property['label_key'] );
 
         if(isset($this->property['filter'] )){
             foreach($this->property['filter'] as $column => $value)
@@ -279,7 +293,7 @@ class AdminForm {
      * This method is used to build a dropdown input for the search section of 'model list'.
      *
      * @param $key: The name of the input field.
-     * @param $field: The array of specifications (from config/maguttiCms/admin/list.php)
+     * @param $field: The array of specifications (from config/laraCms/admin/list.php)
      *
      * @return string: The generated html string.
      */
@@ -312,7 +326,7 @@ class AdminForm {
      * This method is used to build a suggestable field (it uses select 2).
      *
      * @param $key: The name of the input field.
-     * @param $field: The array of specifications (from config/maguttiCms/admin/list.php)
+     * @param $field: The array of specifications (from config/laraCms/admin/list.php)
      *
      * @return string: The generated html string.
      */
