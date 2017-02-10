@@ -1,25 +1,25 @@
-<?php namespace App\MaguttiCms\Admin\Controllers;
+<?php namespace App\LaraCms\Admin\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Validator;
 use Input;
 
-use App\MaguttiCms\Admin\Requests\AdminFormRequest;
-use App\MaguttiCms\Searchable\SearchableTrait;
-use App\MaguttiCms\Sluggable\SluggableTrait;
-use App\MaguttiCms\Tools\UploadManager;
-
-
+use \App\LaraCms\Admin\Helpers\AdminUserTrackerTrait;
+use App\LaraCms\Admin\Requests\AdminFormRequest;
+use App\LaraCms\Searchable\SearchableTrait;
+use App\LaraCms\Sluggable\SluggableTrait;
+use App\LaraCms\Tools\UploadManager;
 
 /**
  * Class AdminPagesController
- * @package App\MaguttiCms\Admin\Controllers
+ * @package App\LaraCms\Admin\Controllers
  */
 class AdminPagesController extends Controller
 {
     use SluggableTrait;
     use SearchableTrait;
+    use AdminUserTrackerTrait;
 
     protected $model;
     protected $models;
@@ -35,7 +35,7 @@ class AdminPagesController extends Controller
     public function init($model)
     {
         $this->model = $model;
-        $this->config = config('maguttiCms.admin.list.section.' . $this->model);
+        $this->config = config('laraCms.admin.list.section.' . $this->model);
         $this->models = strtolower(str_plural($this->config['model']));
         $this->modelClass = 'App\\' . $this->config['model'];
     }
@@ -73,7 +73,8 @@ class AdminPagesController extends Controller
             $objBuilder  = $models::orderby($this->sort, $this->sortType);
         }
         $this->searchFilter( $objBuilder );
-        $articles = $objBuilder->paginate(config('maguttiCms.admin.list.item_per_pages'));
+        $articles = $objBuilder->paginate(config('laraCms.admin.list.item_per_pages'));
+        $articles->appends(request()->input())->links(); // paginazione con parametri di ricerca
         return view('admin.list', ['articles' => $articles, 'pageConfig' => $this->config]);
     }
 
@@ -157,13 +158,14 @@ class AdminPagesController extends Controller
     {
         $this->init($model);
         $this->request = $request;
+        $config = config('laraCms.admin.list.section.' . $model);
         $model  = new  $this->modelClass;
         $article = new $model;
         // input data Handler
         $this->requestFieldHandler($article);
 
         flash()->success('The item <strong>' . $article->title . '</strong> has been created!');
-        return redirect(action('\App\MaguttiCms\Admin\Controllers\AdminPagesController@edit', $this->models . '/' . $article->id));
+        return redirect(action('\App\LaraCms\Admin\Controllers\AdminPagesController@edit', $this->models . '/' . $article->id));
     }
 
     /**
@@ -183,7 +185,7 @@ class AdminPagesController extends Controller
         $article = $model::whereId($id)->firstOrFail();
         // input data Handler
         $this->requestFieldHandler($article);
-        return redirect(action('\App\MaguttiCms\Admin\Controllers\AdminPagesController@edit', $this->models . '/' . $article->id));
+        return redirect(action('\App\LaraCms\Admin\Controllers\AdminPagesController@edit', $this->models . '/' . $article->id));
 
     }
 
@@ -225,7 +227,7 @@ class AdminPagesController extends Controller
         $article = $model::whereId($this->id)->firstOrFail();
         $article->delete();
         flash()->error('The items ' . $article->title . ' has been deleted!')->important();
-        return redirect(action('\App\MaguttiCms\Admin\Controllers\AdminPagesController@lista', $this->models));
+        return redirect(action('\App\LaraCms\Admin\Controllers\AdminPagesController@lista', $this->models));
     }
 
     /**
@@ -241,6 +243,8 @@ class AdminPagesController extends Controller
                 $article->$a = $this->sluggy($article, $this->request->get($a));
             }
         }
+        /** tiene traccia dell'utente che ha fatto le modifiche */
+        $this->hackedBy($article);
         $this->processMedia($article);
         $article->save();
         // many to many relation
