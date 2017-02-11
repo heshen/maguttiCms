@@ -1,4 +1,4 @@
-<?php namespace App\LaraCms\Admin;
+<?php namespace App\MaguttiCms\Admin;
 
 use Carbon\Carbon;
 use Form;
@@ -7,7 +7,7 @@ use App;
 /**
  * Class AdminForm
  *
- * @package App\LaraCms\Admin
+ * @package App\MaguttiCms\Admin
  */
 class AdminForm {
 
