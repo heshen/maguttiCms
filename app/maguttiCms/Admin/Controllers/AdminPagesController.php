@@ -6,6 +6,7 @@ use Validator;
 use Input;
 
 
+use App\MaguttiCms\Admin\Helpers\AdminUserTrackerTrait;
 use App\MaguttiCms\Admin\Requests\AdminFormRequest;
 use App\MaguttiCms\Searchable\SearchableTrait;
 use App\MaguttiCms\Sluggable\SluggableTrait;
@@ -19,6 +20,7 @@ class AdminPagesController extends Controller
 {
     use SluggableTrait;
     use SearchableTrait;
+    use AdminUserTrackerTrait;
 
 
     protected $model;

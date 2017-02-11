@@ -15,8 +15,8 @@ trait AdminUserTrackerTrait
     | Trake
     |--------------------------------------------------------------------------
     */
-    protected $value;
-    protected $model;
+
+    
     protected $guard = 'admin';
 
 
