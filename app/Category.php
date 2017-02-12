@@ -25,8 +25,8 @@ class Category extends Model
     protected $fieldspec = [];
 
 
-    public function media()
-    {
+
+    public function media() {
         return $this->morphMany('App\Media', 'model');
     }
 	
@@ -90,25 +90,26 @@ class Category extends Model
             'display'   => 0,
         ];
 
+
         $this->fieldspec['image'] = [
             'type'      => 'media',
             'pkey'      => 'n',
             'required'  =>  true,
-            'hidden'    => 1,
-            'label'     => 'Image',
+            'hidden'    => false,
+            'label'     => 'Image For menu (390x210px)',
             'extraMsg'  => '',
             'mediaType' => 'Img',
-            'display'   => 0,
+            'display'   => 1,
         ];
         $this->fieldspec['banner'] = [
             'type'      => 'media',
             'pkey'      => 'n',
             'required'  =>  true,
-            'hidden'    => 0,
+            'hidden'    => 1,
             'label'     => 'Image For menu (390x210px)',
             'extraMsg'  => '',
             'mediaType' => 'Img',
-            'display'   => 1,
+            'display'   => 0,
         ];
         $this->fieldspec['sort'] = [
             'type'      => 'integer',

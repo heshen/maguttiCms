@@ -317,8 +317,10 @@ return [
             'preview' => '0',
             'view' => '0',
             'selectable' => '1',
-            'showMedia' => '0',
-            'showMediaDoc' => '0',
+            'showMedia' => '1',
+            'showMediaCategory' => '0',
+            'showMediaImages' => '1',
+            'showMediaDoc' => '1',
             'showSeo' => '1',
             'menu' => [
                 'home' => false,
