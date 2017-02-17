@@ -32,7 +32,7 @@ Route::group(array('prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 
     Route::get('api/updateMediaSortList/',                  '\App\MaguttiCms\Admin\Controllers\AjaxController@updateMediaSortList');
     Route::get('api/suggest', ['as' => 'api.suggest', 'uses' => '\App\MaguttiCms\Admin\Controllers\AjaxController@suggest']);
 
-    Route::get('export/{model?}',               '\App\MaguttiCms\Admin\Controllers\ExportController@model');
+    Route::get('export/{model?}',               '\App\MaguttiCms\Admin\Controllers\AdminExportController@model');
     Route::get('/exportlist/{section?}/{sub?}', '\App\MaguttiCms\Admin\Controllers\AdminExportController@lista');
 
 });
