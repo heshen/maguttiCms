@@ -11,10 +11,13 @@ magutti Cms  is released using laravel 5.4
  - copy files in your local directory
  - rename env.example to .env file and set your db connection data
  - run composer install
+ - run php artisan key:generate
  - create db tables importing framework_base.sql file located under the db folder
  - to login in the admin panel (http://yourpath/admin)
    - email: cmsadmin@magutti.com
    - password: password
+
+ 
   
 License
 =======
