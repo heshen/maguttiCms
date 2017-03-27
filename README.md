@@ -23,3 +23,7 @@ License
 =======
 Code released under the MIT license
 
+Security Vulnerabilities
+=======
+If you discover a security vulnerability within BotMan, please send an e-mail to  at hello@magutti.com. All security vulnerabilities will be promptly addressed.
+
