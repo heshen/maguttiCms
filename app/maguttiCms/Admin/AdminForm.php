@@ -303,15 +303,18 @@ class AdminForm {
         $model = getModelFromString($field['model']);
 
         // $value is the 'value' of <option>.
-        $value = isset($field['value']) ? $field['value'] : 'id';
-        $caption = $field['field'];
+        $value          = isset($field['value']) ? $field['value'] : 'id';
+        $caption        = $field['field'];
+        $orderField     =  (isset($field['order_field']) )? $field['order_field']: $caption;
+        $order          =  (isset($field['order']) )? $field['order']: 'ASC';
 
         // Fetch all model records.
-        $records = $model;
+        $obj = (new  $model)->newQuery();
+        $obj->orderby($orderField,$order);
         if (isset($field['where']))
-            $records = $model->whereRaw($field['where'])->get();
+            $records = $obj->whereRaw($field['where'])->get();
         else
-            $records = $model->all();
+            $records =$obj->all();
 
         $html = "<select class='form-control' id='{$key}' name='{$key}'><option value='' selected>Select an option</option>\n";
         foreach ($records as $record) {
