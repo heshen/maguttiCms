@@ -25,7 +25,6 @@ class ImportController extends Controller
             $lang = $data[2]; //4pt 5de 6es
             if ($i > 0) {
                 echo "'" . $key . "' => '" . addslashes(trim($lang)) . "',\n";
-
             }
             $i++;
         }
