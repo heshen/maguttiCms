@@ -97,7 +97,9 @@ class AdminForm {
         }
 
         else if($this->property['type'] =='text'  && $this->property['display']== 1) {
-            $formElement = Form::textarea($key, $value.'' , array('class' => 'form-control '.$cssClass));
+            $h =(isset($this->property['h']))?$this->property['h']:300;
+            $formElement = Form::textarea($key, $value.'' , array('class' => 'form-controls '.$cssClass,'style'=>'height:'.$h.'px'));
+
         }
         else if($this->property['type'] =='boolean'  && $this->property['display']== 1) {
             //$formElement = Form::checkbox($key, 1 , $this->model->$key );
