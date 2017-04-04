@@ -78,8 +78,8 @@ return [
     */
 
 
-    'locale' => 'en',
-    'locales' => ['en' => 'English', 'it' => 'Italiano'],
+    'locale' => 'zh',
+    'locales' => ['en' => 'English', 'it' => 'Italiano','zh' => 'Chinese'],
 
     /*
     |--------------------------------------------------------------------------

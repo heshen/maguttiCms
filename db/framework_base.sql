@@ -8,7 +8,7 @@
 -- Versione PHP: 7.0.14
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET time_zone = "+00:00";
+SET time_zone = "+08:00";
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -160,6 +160,26 @@ INSERT INTO `article_translations` (`id`, `article_id`, `locale`, `menu_title`, 
 (29, 14, 'en', 'Modular', 'Modular', 'Modular', NULL, '<p><strong>Lorem Ipsum</strong> &egrave; un testo segnaposto utilizzato nel settore della tipografia e della stampa. Lorem Ipsum &egrave; considerato il testo segnaposto standard sin dal sedicesimo secolo, quando un anonimo tipografo prese una cassetta di caratteri e li assembl&ograve; per preparare un testo campione. &Egrave; sopravvissuto non solo a pi&ugrave; di cinque secoli, ma anche al passaggio alla videoimpaginazione, pervenendoci sostanzialmente inalterato. Fu reso popolare, negli anni &rsquo;60, con la diffusione dei fogli di caratteri trasferibili &ldquo;Letraset&rdquo;, che contenevano passaggi del Lorem Ipsum, e pi&ugrave; recentemente da software di impaginazione come Aldus PageMaker, che includeva versioni del Lorem Ipsum.</p>', '', '', '', '', '', 0, 0, '2016-12-27 17:17:21', '2016-12-27 17:17:21'),
 (30, 14, 'it', 'Modular', 'Modular', 'Modular', NULL, '', '', '', '', '', '', 0, 0, '2016-12-27 17:17:21', '2016-12-29 09:11:26');
 
+
+-- --
+--  添加中文支持
+--
+INSERT INTO `article_translations` (`id`, `article_id`, `locale`, `menu_title`, `title`, `subtitle`, `intro`, `description`, `abstract`, `seo_title`, `seo_description`, `seo_keywords`, `seo_no_index`, `created_by`, `update_by`, `created_at`, `updated_at`) VALUES
+(31, 1, 'zh', '', 'LaraCms', '为Web准备的Cms工具', NULL, '', '', 'laraCms - 免费开源的 CMS ，基于 Laravel PHP 框架', '', '', '', 0, 0, '2016-07-04 07:53:04', '2016-12-29 11:43:10'),
+(32, 2, 'zh', '公司', '公司', '', '<p>公司简介. Donec luctus luctus dui, vitae dapibus ipsum fermentum a. Quisque fermentum sodales iaculis. Nunc blandit ante luctus urna laoreet sollicitudin. Praesent a liber', '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus egestas aliquam mollis. Donec luctus luctus dui, vitae dapibus ipsum fermentum a. Quisque fermentum sodales iaculis. Nunc blandit ante luctus urna laoreet sollicitudin. Praesent a libero vitae elit pretium cursus. Ut maximus felis pretium augue ullamcorper venenatis. Aenean mattis hendrerit dui id aliquet. Nunc rhoncus ipsum ut orci posuere semper vel quis diam. Duis pulvinar molestie nisi, sed sollicitudin metus fermentum sit amet. Phasellus semper, nibh sed laoreet blandit, ligula neque egestas tortor, ac porttitor massa justo ut diam.</p>\r\n<p>Donec id sem sem. Pellentesque augue quam, euismod nec neque non, sollicitudin tincidunt purus. Sed viverra libero eget ante sollicitudin iaculis. Donec erat tellus, aliquet aliquam nisi vel, faucibus interdum est. In aliquet pharetra eros vel lacinia. Nam sit amet ex tristique, pretium quam quis, ullamcorper dolor. Vestibulum gravida eros accumsan gravida iaculis. Suspendisse eu elit metus. Pellentesque iaculis rutrum augue quis blandit. Fusce at lacus vestibulum, placerat justo vitae, lacinia nisl. Phasellus accumsan enim vitae ex condimentum rhoncus.</p>\r\n<p>Duis feugiat semper eros, vitae consectetur mauris volutpat viverra. Aenean at augue dui. Sed varius tincidunt hendrerit. Cras sed condimentum nunc. Vestibulum consequat eget ipsum a ultrices. Proin auctor commodo facilisis. Praesent quis neque tellus. Fusce venenatis, odio nec facilisis molestie, orci lacus lobortis orci, nec commodo tortor tortor et eros. Sed lacinia nisi et eleifend pharetra. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Morbi sodales diam quis diam volutpat, et egestas purus scelerisque. Phasellus bibendum diam venenatis tortor pretium iaculis. Aliquam a faucibus mauris. Aenean sed urna velit. Nam malesuada dui eget scelerisque fermentum.</p>', '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus egestas aliquam mollis. Donec luctus luctus dui, vitae dapibus ipsum fermentum a. Quisque fermentum sodales iaculis. Nunc blandit ante luctus urna laoreet sollicitudin. Praesent a libero vitae elit pretium cursus. Ut maximus felis pretium augue ullamcorper venenatis. Aenean mattis hendrerit dui id aliquet. Nunc rhoncus ipsum ut orci posuere semper vel quis diam. Duis pulvinar molestie nisi, sed sollicitudin metus fermentum sit amet. Phasellus semper, nibh sed laoreet blandit, ligula neque egestas tortor, ac porttitor massa justo ut diam.</p>\r\n<p>Donec id sem sem. Pellentesque augue quam, euismod nec neque non, sollicitudin tincidunt purus. Sed viverra libero eget ante sollicitudin iaculis. Donec erat tellus, aliquet aliquam nisi vel, faucibus interdum est. In aliquet pharetra eros vel lacinia. Nam sit amet ex tristique, pretium quam quis, ullamcorper dolor. Vestibulum gravida eros accumsan gravida iaculis. Suspendisse eu elit metus. Pellentesque iaculis rutrum augue quis blandit. Fusce at lacus vestibulum, placerat justo vitae, lacinia nisl. Phasellus accumsan enim vitae ex condimentum rhoncus.</p>\r\n<p>Duis feugiat semper eros, vitae consectetur mauris volutpat viverra. Aenean at augue dui. Sed varius tincidunt hendrerit. Cras sed condimentum nunc. Vestibulum consequat eget ipsum a ultrices. Proin auctor commodo facilisis. Praesent quis neque tellus. Fusce venenatis, odio nec facilisis molestie, orci lacus lobortis orci, nec commodo tortor tortor et eros. Sed lacinia nisi et eleifend pharetra. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Morbi sodales diam quis diam volutpat, et egestas purus scelerisque. Phasellus bibendum diam venenatis tortor pretium iaculis. Aliquam a faucibus mauris. Aenean sed urna velit. Nam malesuada dui eget scelerisque fermentum.</p>', '', '', '', '', 0, 0, '2016-07-04 07:53:13', '2016-12-27 16:51:04'),
+(33, 3, 'zh', '', '隐私条款', '', NULL, '', NULL, '', '', '', '', 0, 0, '2016-07-04 07:53:28', '2016-07-04 10:51:02'),
+(34, 5, 'zh', '', '产品', '', NULL, '', NULL, '', '', '', '', 0, 0, '2016-07-04 07:53:38', '2016-07-04 10:51:09'),
+(35, 4, 'zh', '', '联系我们', '', NULL, '', NULL, '', '', '', '', 0, 0, '2016-07-04 07:54:32', '2016-07-04 10:51:23'),
+(36, 6, 'zh', '新闻', '新闻', '', NULL, '', NULL, '', '', '', '', 0, 0, '2016-08-04 11:24:58', '2016-12-27 14:02:09'),
+(37, 7, 'zh', '登录', '登录', '', NULL, '', NULL, 'Login', '', '', '', 0, 0, '2016-08-09 13:12:14', '2016-12-27 14:01:50'),
+(38, 8, 'zh', '仪表盘', '仪表盘', '', NULL, '', NULL, '', '', '', '', 0, 0, '2016-08-09 13:24:04', '2016-12-27 14:01:35'),
+(39, 9, 'zh', '保留区域', '保留区域', '', NULL, '', NULL, '', '', '', '', 0, 0, '2016-08-10 07:16:26', '2016-12-27 14:02:51'),
+(40, 10, 'zh', '用户信息', '用户信息', '', NULL, '', NULL, '', '', '', '', 0, 0, '2016-08-10 07:17:38', '2016-12-27 14:02:31'),
+(41, 11, 'zh', '服务', '服务', 'Here to help your idea grow', NULL, '<p>我们开发定制的创新解决方案，可以加速将你的想法变为现实.</p>', '', '', '', '', '', 0, 0, '2016-12-27 16:25:28', '2016-12-31 08:24:38'),
+(42, 12, 'zh', '开源', '开源', '开源', NULL, '', '', '', '', '', '', 0, 0, '2016-12-27 17:10:47', '2016-12-27 17:10:47'),
+(43, 13, 'zh', '多语言', '多语言', '多语言', NULL, '<p><strong>哑元文本</strong> &egrave; un testo segnaposto utilizzato nel settore della tipografia e della stampa. Lorem Ipsum &egrave; considerato il testo segnaposto standard sin dal sedicesimo secolo, quando un anonimo tipografo prese una cassetta di caratteri e li assembl&ograve; per preparare un testo campione. &Egrave; sopravvissuto non solo a pi&ugrave; di cinque secoli, ma anche al passaggio alla videoimpaginazione, pervenendoci sostanzialmente inalterato. Fu reso popolare, negli anni &rsquo;60, con la diffusione dei fogli di caratteri trasferibili &ldquo;Letraset&rdquo;, che contenevano passaggi del Lorem Ipsum, e pi&ugrave; recentemente da software di impaginazione come Aldus PageMaker, che includeva versioni del Lorem Ipsum.</p>', '', '', '', '', '', 0, 0, '2016-12-27 17:16:25', '2016-12-27 17:16:25'),
+(44, 14, 'zh', '模块化', '模块化', '模块化', NULL, '<p><strong>哑元文本</strong> &egrave; un testo segnaposto utilizzato nel settore della tipografia e della stampa. Lorem Ipsum &egrave; considerato il testo segnaposto standard sin dal sedicesimo secolo, quando un anonimo tipografo prese una cassetta di caratteri e li assembl&ograve; per preparare un testo campione. &Egrave; sopravvissuto non solo a pi&ugrave; di cinque secoli, ma anche al passaggio alla videoimpaginazione, pervenendoci sostanzialmente inalterato. Fu reso popolare, negli anni &rsquo;60, con la diffusione dei fogli di caratteri trasferibili &ldquo;Letraset&rdquo;, che contenevano passaggi del Lorem Ipsum, e pi&ugrave; recentemente da software di impaginazione come Aldus PageMaker, che includeva versioni del Lorem Ipsum.</p>', '', '', '', '', '', 0, 0, '2016-12-27 17:17:21', '2016-12-27 17:17:21');
+
 -- --------------------------------------------------------
 
 --
@@ -283,6 +303,14 @@ INSERT INTO `category_translations` (`id`, `category_id`, `locale`, `title`, `de
 (4, 2, 'it', 'Research', NULL, '', '', '', 0, 0, '2016-12-26 12:16:23', '2016-12-27 18:33:06'),
 (5, 3, 'en', 'Start-up', NULL, '', '', '', 0, 0, '2016-12-27 18:33:25', '2016-12-27 18:33:25'),
 (6, 3, 'it', 'Start-up', NULL, '', '', '', 0, 0, '2016-12-27 18:33:25', '2016-12-29 11:44:30');
+
+--
+--  添加中文支持
+--
+INSERT INTO `category_translations` (`id`, `category_id`, `locale`, `title`, `description`, `seo_title`, `seo_description`, `seo_keywords`, `created_by`, `update_by`, `created_at`, `updated_at`) VALUES
+(7, 1, 'zh', '身份', NULL, '', '', '', 0, 0, '2016-07-04 06:29:04', '2016-12-27 18:32:32'),
+(8, 2, 'zh', '研究', NULL, '', '', '', 0, 0, '2016-12-26 12:16:23', '2016-12-27 18:33:06'),
+(9, 3, 'zh', '启动', NULL, '', '', '', 0, 0, '2016-12-27 18:33:25', '2016-12-29 11:44:30');
 
 -- --------------------------------------------------------
 
@@ -637,6 +665,15 @@ INSERT INTO `domain_translations` (`id`, `domain_id`, `locale`, `title`, `update
 (121, 21, 'it', 'Template con sottopagine', 0, '2016-06-28 13:18:04', '2016-07-04 07:38:10'),
 (122, 21, 'en', 'Sub page template', 0, '2016-06-28 13:18:04', '2016-12-27 14:17:28');
 
+--
+-- 添加中文支持
+--
+INSERT INTO `domain_translations` (`id`, `domain_id`, `locale`, `title`, `update_by`, `created_at`, `updated_at`) VALUES
+(123, 1, 'zh', '顶部头滑块', 0, '2016-06-23 07:36:42', '2016-06-28 07:58:39'),
+(124, 2, 'zh', '相册页面', 0, '2016-06-23 07:38:24', '2016-12-27 16:38:49'),
+(125, 21, 'zh', '子页面模板', 0, '2016-06-28 13:18:04', '2016-12-27 14:17:28');
+
+
 -- --------------------------------------------------------
 
 --
@@ -782,6 +819,33 @@ INSERT INTO `media_translations` (`id`, `media_id`, `locale`, `title`, `descript
 (153, 98, 'en', 'anisa3.jpg', '', '2017-01-03 15:35:11', '2017-01-03 15:35:11'),
 (154, 99, 'en', 'anisa7.jpg', '', '2017-01-03 15:35:24', '2017-01-03 15:35:24');
 
+-- --
+--
+--
+INSERT INTO `media_translations` (`id`, `media_id`, `locale`, `title`, `description`, `created_at`, `updated_at`) VALUES
+(156, 65, 'zh', '84861-bg-header.jpg', '', '2016-06-28 07:45:54', '2016-06-28 07:45:54'),
+(157, 66, 'zh', '97814-bg-header.jpg', '', '2016-06-28 07:48:40', '2016-06-28 07:48:40'),
+(158, 67, 'zh', '40330-bg-header.jpg', '', '2016-06-28 07:48:56', '2016-06-28 07:48:56'),
+(159, 68, 'zh', '58490-bg-header.jpg', '', '2016-06-28 07:49:01', '2016-06-28 07:49:01'),
+(160, 69, 'zh', '90919-bg-header.jpg', '', '2016-06-29 11:13:03', '2016-06-29 11:13:03'),
+(161, 70, 'zh', '57396-bg-header.jpg', '', '2016-06-29 11:13:06', '2016-06-29 11:13:06'),
+(162, 71, 'zh', '70822-bg-header.jpg', '', '2016-06-29 11:51:08', '2016-06-29 11:51:08'),
+(163, 72, 'zh', '50598-image-3.jpg', '', '2016-06-30 10:08:36', '2016-06-30 10:08:36'),
+(164, 73, 'zh', '92355-image-1.jpg', '', '2016-06-30 10:08:40', '2016-06-30 10:08:40'),
+(165, 74, 'zh', '22895-bg-header.jpg', '', '2016-06-30 10:23:59', '2016-06-30 10:23:59'),
+(166, 75, 'zh', '23356-1-allestimento-cremona-disegno.jpg', '', '2016-07-01 04:49:01', '2016-07-01 04:49:01'),
+(167, 76, 'zh', '13429-3-allestimento-cremona.jpg', '', '2016-07-01 04:49:01', '2016-07-01 04:49:01'),
+(168, 77, 'zh', '80018-4-allestimento-cremona-ficus-exotica-designer-900-cm-green.jpg', '', '2016-07-01 04:49:02', '2016-07-01 04:49:02'),
+(169, 78, 'zh', '38616-2-allestimento-cremona.jpg', '', '2016-07-01 04:49:02', '2016-07-01 04:49:02'),
+(170, 79, 'zh', '73032-idromassaggio-1.jpg', '', '2016-07-01 05:37:29', '2016-07-01 05:37:29'),
+(171, 80, 'zh', '23833-idromassaggio-3.jpg', '', '2016-07-01 05:37:29', '2016-07-01 05:37:29'),
+(172, 81, 'zh', '71278-idromassaggio-2.jpg', '', '2016-07-01 05:37:30', '2016-07-01 05:37:30'),
+(173, 82, 'zh', '86991-on-sale-icon.jpg', '', '2016-08-04 10:46:39', '2016-08-04 10:46:39'),
+(174, 90, 'zh', '50175-ric.png', '', '2016-08-04 12:39:20', '2016-08-04 12:39:20'),
+(175, 91, 'zh', '90125-ric.png', '', '2016-08-04 12:43:28', '2016-08-04 12:43:28'),
+(176, 92, 'zh', '93572-ric.png', '', '2016-08-04 12:47:29', '2016-08-04 12:47:29'),
+(176, 93, 'zh', 'ric.png', '', '2016-08-04 12:48:47', '2016-08-04 12:48:47'),
+(178, 94, 'zh', '30256-ric.png', '', '2016-08-04 12:49:07', '2016-08-04 12:49:07');
 -- --------------------------------------------------------
 
 --
@@ -935,6 +999,13 @@ INSERT INTO `news_translations` (`id`, `news_id`, `locale`, `title`, `descriptio
 (2, 2, 'en', 'Lorem Ipsum', '<p><strong>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec volutpat maximus purus, sit amet congue nulla maximus quis. Nam sit amet massa sed ante rhoncu</strong>s vehicula. Nam nec metus eu lorem porttitor suscipit. In at mi sit amet felis tincidunt lobortis ac quis nulla. Morbi condimentum eros vel felis iaculis facilisis. Nam at elit a odio elementum fringilla a vel magna. Vestibulum varius bibendum lectus, sed cursus leo consectetur a. Duis venenatis hendrerit enim, vitae tincidunt quam. Phasellus sollicitudin lobortis turpis, quis mollis purus porttitor sit amet.</p>\r\n<p>In et elit a eros blandit vehicula cursus sed lacus. Donec a lectus lorem. Fusce lobortis, sapien quis finibus commodo, metus eros ultrices nibh, ut viverra dui quam eu nunc. Vestibulum risus lorem, tincidunt eu porttitor vitae, finibus in nibh. Sed non leo eget metus accumsan posuere. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam vel pharetra leo.</p>\r\n<p>Donec ac purus posuere mi iaculis vehicula sit amet non ipsum. Phasellus molestie tempor mi vel tempor. In vel tincidunt quam. Maecenas ullamcorper, metus id egestas tempor, lorem libero consectetur quam, vel euismod nulla dolor sollicitudin ante. Donec ac mi facilisis, pretium magna quis, molestie enim. Praesent ornare purus id fringilla iaculis. Praesent hendrerit eros vitae sapien sollicitudin, eu aliquam magna semper. Pellentesque dictum leo sed lacus porta, vitae finibus odio tincidunt.</p>', NULL, NULL, NULL, '1', '3', '2', 0, 0, '2016-12-26 13:16:50', '2016-12-26 12:16:50'),
 (3, 3, 'it', 'Lorem Ipsum 2', '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ornare nisi a convallis ultrices. Vestibulum vitae justo venenatis, auctor arcu in, egestas tellus. Aliquam erat volutpat. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam auctor faucibus convallis. Etiam posuere cursus tellus quis bibendum. Sed aliquam dolor dui. Aenean nec fermentum libero. Ut et sapien eu lectus facilisis mattis nec quis orci. Aliquam erat volutpat. Pellentesque quis ipsum sed felis aliquam pretium. Aenean accumsan, arcu ac dignissim laoreet, leo lacus venenatis est, nec eleifend turpis arcu a leo. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>\r\n<p>Fusce leo est, tristique sed luctus vitae, pellentesque at nisi. Curabitur et porttitor metus. Sed cursus nibh arcu, ac suscipit enim mattis ut. Morbi tristique mauris velit, porttitor interdum ex pharetra quis. Etiam vel sapien auctor, eleifend lorem id, vulputate est. Pellentesque eget mi ac nulla elementum sagittis vel at ligula. Duis feugiat faucibus augue eu elementum. Donec in tellus quis velit molestie faucibus. Integer lacinia est vel diam blandit pellentesque. Phasellus eget felis in ante ultrices lacinia vitae lobortis ipsum. Praesent iaculis quis magna a aliquet. Aliquam erat volutpat. Morbi quis magna nisl. Nunc in leo turpis. Phasellus finibus aliquam dolor ac mollis.</p>', NULL, NULL, NULL, '', '', '', 0, 0, '2016-07-04 12:23:16', '2016-07-04 10:23:16'),
 (4, 3, 'en', 'Lorem Ipsum 2', '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ornare nisi a convallis ultrices. Vestibulum vitae justo venenatis, auctor arcu in, egestas tellus. Aliquam erat volutpat. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam auctor faucibus convallis. Etiam posuere cursus tellus quis bibendum. Sed aliquam dolor dui. Aenean nec fermentum libero. Ut et sapien eu lectus facilisis mattis nec quis orci. Aliquam erat volutpat. Pellentesque quis ipsum sed felis aliquam pretium. Aenean accumsan, arcu ac dignissim laoreet, leo lacus venenatis est, nec eleifend turpis arcu a leo. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>\r\n<p>Fusce leo est, tristique sed luctus vitae, pellentesque at nisi. Curabitur et porttitor metus. Sed cursus nibh arcu, ac suscipit enim mattis ut. Morbi tristique mauris velit, porttitor interdum ex pharetra quis. Etiam vel sapien auctor, eleifend lorem id, vulputate est. Pellentesque eget mi ac nulla elementum sagittis vel at ligula. Duis feugiat faucibus augue eu elementum. Donec in tellus quis velit molestie faucibus. Integer lacinia est vel diam blandit pellentesque. Phasellus eget felis in ante ultrices lacinia vitae lobortis ipsum. Praesent iaculis quis magna a aliquet. Aliquam erat volutpat. Morbi quis magna nisl. Nunc in leo turpis. Phasellus finibus aliquam dolor ac mollis.</p>', NULL, NULL, NULL, '', '', '', 0, 0, '2016-07-04 12:50:24', '2016-07-04 10:50:24');
+
+--
+-- 中文
+--
+INSERT INTO `news_translations` (`id`, `news_id`, `locale`, `title`, `description`, `abstract`, `subtitle`, `intro`, `seo_title`, `seo_description`, `seo_keywords`, `created_by`, `update_by`, `created_at`, `updated_at`) VALUES
+(5, 2, 'zh', '乱数假文', '<p>《古诗三百首》选编了从上古到晚清共两千多年近两百位诗人约三百首诗歌作品，其中既包括《诗经》和《楚辞》里的著名篇章，又包括历代天才诗人的杰出作品。在这些诗人中，三国的曹植被誉为“才高八斗”；东晋的陶渊明被称为“古今隐逸诗人之宗”；南齐的谢朓让唐代大诗人李白一生佩服不已；北宋的苏轼和黄庭坚等人开创的宋代诗风；南宋的陆游一生创作了近万首诗。此外，对人生的感悟，对家乡、故国的思念，对四季美景的歌咏，对民生疾苦的呼吁它们或慷慨激昂，或生动活泼，或明白晓畅，或含蓄深沉，但都节奏铿锵，朗朗上口，处处闪烁着中华经典古诗的智慧之光sit amet congue nulla maximus quis. Nam sit amet massa sed ante rhoncus vehicula. Nam nec metus eu lorem porttitor suscipit. In at mi sit amet felis tincidunt lobortis ac quis nulla. Morbi condimentum eros vel felis iaculis facilisis. Nam at elit a odio elementum fringilla a vel magna. Vestibulum varius bibendum lectus, sed cursus leo consectetur a. Duis venenatis hendrerit enim, vitae tincidunt quam. Phasellus sollicitudin lobortis turpis, quis mollis purus porttitor sit amet.</p>\r\n<p>In et elit a eros blandit vehicula cursus sed lacus. Donec a lectus lorem. Fusce lobortis, sapien quis finibus commodo, metus eros ultrices nibh, ut viverra dui quam eu nunc. Vestibulum risus lorem, tincidunt eu porttitor vitae, finibus in nibh. Sed non leo eget metus accumsan posuere. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam vel pharetra leo.</p>\r\n<p>Donec ac purus posuere mi iaculis vehicula sit amet non ipsum. Phasellus molestie tempor mi vel tempor. In vel tincidunt quam. Maecenas ullamcorper, metus id egestas tempor, lorem libero consectetur quam, vel euismod nulla dolor sollicitudin ante. Donec ac mi facilisis, pretium magna quis, molestie enim. Praesent ornare purus id fringilla iaculis. Praesent hendrerit eros vitae sapien sollicitudin, eu aliquam magna semper. Pellentesque dictum leo sed lacus porta, vitae finibus odio tincidunt.</p>', NULL, NULL, NULL, '', '', '', 0, 0, '2016-07-04 10:31:53', '2016-07-04 08:31:53'),
+(6, 3, 'zh', '乱数假文 2', '<p>辽东海北翦长鲸，风云万里清。方当销锋散马牛，旋师宴镐京。前歌后舞振军威，饮至解戎衣。判不徒行万里去，空道五原归。秉旄仗节定辽东，俘馘变夷风。清歌凯捷九都水，归宴洛阳宫。策功行赏不淹留，全军藉智谋。讵似南宫复道上，先封雍齿侯 dis parturient montes, nascetur ridiculus mus. Nam auctor faucibus convallis. Etiam posuere cursus tellus quis bibendum. Sed aliquam dolor dui. Aenean nec fermentum libero. Ut et sapien eu lectus facilisis mattis nec quis orci. Aliquam erat volutpat. Pellentesque quis ipsum sed felis aliquam pretium. Aenean accumsan, arcu ac dignissim laoreet, leo lacus venenatis est, nec eleifend turpis arcu a leo. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>\r\n<p>Fusce leo est, tristique sed luctus vitae, pellentesque at nisi. Curabitur et porttitor metus. Sed cursus nibh arcu, ac suscipit enim mattis ut. Morbi tristique mauris velit, porttitor interdum ex pharetra quis. Etiam vel sapien auctor, eleifend lorem id, vulputate est. Pellentesque eget mi ac nulla elementum sagittis vel at ligula. Duis feugiat faucibus augue eu elementum. Donec in tellus quis velit molestie faucibus. Integer lacinia est vel diam blandit pellentesque. Phasellus eget felis in ante ultrices lacinia vitae lobortis ipsum. Praesent iaculis quis magna a aliquet. Aliquam erat volutpat. Morbi quis magna nisl. Nunc in leo turpis. Phasellus finibus aliquam dolor ac mollis.</p>', NULL, NULL, NULL, '', '', '', 0, 0, '2016-07-04 12:23:16', '2016-07-04 10:23:16');
 
 -- --------------------------------------------------------
 
@@ -1099,6 +1170,16 @@ INSERT INTO `product_translations` (`id`, `product_id`, `locale`, `title`, `subt
 (14, 13, 'it', 'Tajiki Handicraft', '', '<p>Strategic set-up and implementation of the development plan for the Tajik handicraft sector. Total branding, visual identity and graphic design of the main communication tools (logo, catalog, labels, etc..) for new Tajikistan craft brand</p>', NULL, '', '', '', 0, 0, '2016-12-29 09:01:24', '2016-12-29 09:01:24'),
 (15, 14, 'en', 'Kiepe packaging', '', '<p>New visual identity, graphic catalog, packaging design, realization of the website for the manufacturer of professional scissors in Premana district, Lecco.</p>', NULL, '', '', '', 0, 0, '2016-12-29 09:04:23', '2016-12-29 09:04:23'),
 (16, 14, 'it', 'Kiepe packaging', '', '<p>New visual identity, graphic catalog, packaging design, realization of the website for the manufacturer of professional scissors in Premana district, Lecco.</p>', NULL, '', '', '', 0, 0, '2016-12-29 09:04:23', '2016-12-29 09:04:23');
+
+
+INSERT INTO `product_translations` (`id`, `product_id`, `locale`, `title`, `subtitle`, `description`, `doc`, `seo_title`, `seo_description`, `seo_keywords`, `created_by`, `update_by`, `created_at`, `updated_at`) VALUES
+(17, 8, 'zh', 'Prodotto Demo古诗三百首', '', '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas vel risus vehicula, rhoncus augue in, bibendum felis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>', NULL, '', '', '', 0, 0, '2016-07-04 07:21:52', '2016-12-29 08:54:13'),
+(18, 9, 'zh', '鱼戏莲叶东', '', '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas vel risus vehicula, rhoncus augue in, bibendum felis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>', NULL, '', '', '', 0, 0, '2016-12-27 18:37:24', '2016-12-29 08:54:57'),
+(19, 10, 'zh', '咏同心芙蓉', '', '<p>灼灼荷花瑞，亭亭出水中。一茎孤引绿，双影共分红。色夺歌人脸，香乱舞衣风。名莲自可念，况复两心同 consectetur adipiscing elit. Maecenas vel risus vehicula, rhoncus augue in, bibendum felis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos</p>', NULL, '', '', '', 0, 0, '2016-12-29 08:56:05', '2016-12-29 08:56:05'),
+(20, 11, 'zh', '纪辽东二首', '', '<p>辽东海北翦长鲸，风云万里清。方当销锋散马牛，旋师宴镐京。前歌后舞振军威，饮至解戎衣。判不徒行万里去，空道五原归。秉旄仗节定辽东，俘馘变夷风。清歌凯捷九都水，归宴洛阳宫。策功行赏不淹留，全军藉智谋。讵似南宫复道上，先封雍齿侯 inspired by the simple forms of buckets and pans belonging to the local rural culture. The roast chestnut pot is the symbolic mother element for all the collection: overturned, manipulated and transformed, it passes on the dominant gene to a numerous kind of objects, all dedicated to the contemporary home, able to directly give back an idea of a frugal, simple and reassuring world</p>', NULL, '', '', '', 0, 0, '2016-12-29 08:57:54', '2016-12-29 08:57:54'),
+(21, 12, 'zh', '居山四望阻', '', '<p>居山四望阻，风云竟朝夕。深溪横古树，空岩卧幽石。日出远岫明，鸟散空林寂。兰庭动幽气，竹室生虚白。落花入户飞，细草当阶积。桂酒徒盈樽，故人不在席。日落山之幽，临风望羽客。岩壑澄清景，景清岩壑深。白云飞暮色，绿水激清音。涧户散余彩，山窗凝宿阴。花草共萦映，树石相陵.</p>', NULL, '', '', '', 0, 0, '2016-12-29 08:59:26', '2016-12-29 08:59:26'),
+(22, 13, 'zh', 'Tajiki Handicraft手稿', '', '<p>唐诗三百首_唐诗三百首全集赏析 for the Tajik handicraft sector. Total branding, visual identity and graphic design of the main communication tools (logo, catalog, labels, etc..) for new Tajikistan craft brand</p>', NULL, '', '', '', 0, 0, '2016-12-29 09:01:24', '2016-12-29 09:01:24'),
+(23, 14, 'zh', '唐诗三百首_唐诗三百首全集赏析', '', '<p>唐诗三百首_唐诗三百首全集赏析, graphic catalog, packaging design, realization of the website for the manufacturer of professional scissors in Premana district, Lecco.</p>', NULL, '', '', '', 0, 0, '2016-12-29 09:04:23', '2016-12-29 09:04:23');
 
 -- --------------------------------------------------------
 
@@ -1430,6 +1511,13 @@ INSERT INTO `tag_translations` (`id`, `tag_id`, `locale`, `title`, `created_at`,
 (5, 3, 'en', 'laravel', '2016-12-27 17:08:28', '2016-12-27 17:08:28'),
 (6, 3, 'it', '', '2016-12-27 17:08:28', '2016-12-27 17:08:28');
 
+-- --
+--  中文
+--
+INSERT INTO `tag_translations` (`id`, `tag_id`, `locale`, `title`, `created_at`, `updated_at`) VALUES
+(7, 1, 'zh', 'Tag', '2016-12-27 18:07:07', '2016-12-27 17:07:07'),
+(8, 2, 'zh', 'PHP', '2016-12-27 17:07:15', '2016-12-27 17:07:15'),
+(9, 3, 'zh', 'laravel', '2016-12-27 17:08:28', '2016-12-27 17:08:28');
 -- --------------------------------------------------------
 
 --
