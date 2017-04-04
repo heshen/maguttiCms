@@ -41,8 +41,6 @@ $RECYCLE.BIN/
 Network Trash Folder
 Temporary Items
 .apdisk
-
-.apdisk
 .project
 .settings/*
 *.pdf
@@ -55,7 +53,6 @@ cache/*.*
 *.md
 readme.md
 uploads/*
-<<<<<<< HEAD
 
 
 # Laravel 5
@@ -68,21 +65,16 @@ uploads/*
 Homestead.yaml
 Homestead.json
 .env
-.project
-.DS_Store
 clockwork
 /.idea
 
 #PHP Storm
 # =========================
-/.idea
 /_ide_helper.php
->>>>>>> origin/master
-.env
-.env
 npm-shrinkwrap.json
 
 *.env
 
 /.env
 
+/composer.lock
