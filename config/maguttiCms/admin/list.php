@@ -7,6 +7,105 @@ return [
      */
     'item_per_pages' => 25,
     'section' => [
+        'botanies' => [
+            'model' => 'Botany',
+            'title' => '植物',
+            'icon' => 'newspaper-o',
+            'fieldLabel' => 'ID,植物中文名称,植物别名名称,英文名称,拉丁文名称,生物分类,科,科(拉丁),属,属(拉丁),特征,分布,生境,用途,药用价值,图片1标题,图片1,图片2标题,图片2,图片3标题,图片3,图片4标题,图片4,图片5标题,图片5,图片6标题,图片6,创建时间,更新时间',
+
+            'field' => ['id',
+                'name'   => ['type' => 'text', 'field' => 'name', 'class' => 'col-sm-1 text-center','orderable'=>true],
+                'alias'   => ['type' => 'text', 'field' => 'alias', 'class' => 'col-sm-1 text-center','orderable'=>true],
+                'english_name'   => ['type' => 'text', 'field' => 'english_name', 'class' => 'col-sm-1 text-center','orderable'=>true],
+                'latin_name'   => ['type' => 'text', 'field' => 'latin_name', 'class' => 'col-sm-1 text-center','orderable'=>true],
+                'taxon'   => ['type' => 'text', 'field' => 'taxon', 'class' => 'col-sm-1 text-center','orderable'=>true],
+                'family'   => ['type' => 'text', 'field' => 'family', 'class' => 'col-sm-1 text-center','orderable'=>true],
+                'latin_family'   => ['type' => 'text', 'field' => 'latin_family', 'class' => 'col-sm-1 text-center','orderable'=>true],
+                'genus'   => ['type' => 'text', 'field' => 'genus', 'class' => 'col-sm-1 text-center','orderable'=>true],
+                'latin_genus'   => ['type' => 'text', 'field' => 'latin_genus', 'class' => 'col-sm-1 text-center','orderable'=>true],
+                'trait'   => ['type' => 'text', 'field' => 'trait', 'class' => 'col-sm-1 text-center','orderable'=>true],
+                'distribution'   => ['type' => 'text', 'field' => 'distribution', 'class' => 'col-sm-1 text-center','orderable'=>true],
+                'growth_env'   => ['type' => 'text', 'field' => 'growth_env', 'class' => 'col-sm-1 text-center','orderable'=>true],
+                'purpose'   => ['type' => 'text', 'field' => 'purpose', 'class' => 'col-sm-1 text-center','orderable'=>true],
+                'medical'   => ['type' => 'text', 'field' => 'medical', 'class' => 'col-sm-1 text-center','orderable'=>true],
+                'img_title1'  => ['type' => 'textn', 'field' => 'img_title1', 'class' => 'col-sm-1 text-center','orderable'=>true],
+                'img1'  => ['type' => 'image', 'field' => 'img1', 'class' => 'col-sm-1 list-image'],
+                'img_title2'  => ['type' => 'textn', 'field' => 'img_title2', 'class' => 'col-sm-1 text-center','orderable'=>true],
+                'img2'  => ['type' => 'image', 'field' => 'img2', 'class' => 'col-sm-1 list-image'],
+                'img_title3'  => ['type' => 'textn', 'field' => 'img_title3', 'class' => 'col-sm-1 text-center','orderable'=>true],
+                'img3'  => ['type' => 'image', 'field' => 'img3', 'class' => 'col-sm-1 list-image'],
+                'img_title4'  => ['type' => 'textn', 'field' => 'img_title4', 'class' => 'col-sm-1 text-center','orderable'=>true],
+                'img4'  => ['type' => 'image', 'field' => 'img4', 'class' => 'col-sm-1 list-image'],
+                'img_title5'  => ['type' => 'textn', 'field' => 'img_title5', 'class' => 'col-sm-1 text-center','orderable'=>true],
+                'img5'  => ['type' => 'image', 'field' => 'img5', 'class' => 'col-sm-1 list-image'],
+                'img_title6'  => ['type' => 'textn', 'field' => 'img_title6', 'class' => 'col-sm-1 text-center','orderable'=>true],
+                'img6'  => ['type' => 'image', 'field' => 'img6', 'class' => 'col-sm-1 list-image'],
+                'created_at' => ['type' => 'date', 'field' => 'created_at', 'class' => 'col-sm-1 text-center','orderable'=>true],
+                'updated_at' => ['type' => 'date', 'field' => 'updated_at', 'class' => 'col-sm-1 text-center','orderable'=>true],
+            ],
+            'field_searcheable' => [
+                /*
+                 * This is the 'relation' version which builds a dropdown input for the corresponding relation.
+                 * It should be only used when there are only a few records to show.
+                 */
+//                'taxon' => [
+//                    'label'    => '生物分类',
+//                    'class'    => ' col-xs-6 col-sm-2',
+//                    'type'     => 'relation',
+//                    'model'    => 'article',
+//                    'relation' => 'parentPage',
+//                    'value'    => 'id',
+//                    'field'    => 'title',
+//                    'where'    => 'id_parent = 0'
+//                ],
+                /**
+                 * This is the 'suggest' version which builds a dropdown handled by select 2 for the corresponding relation.
+                 * It should be used when there are a lot of records to filter.
+                 */
+                /*'id_parent' => [
+                    'label'       => 'Parent page',
+                    'class'       => ' col-xs-6 col-sm-2',
+                    'type'        => 'suggest',
+                    'model'       => 'article',
+                    'value'       => 'id',
+                    'caption'     => 'title',
+                    'is_accessor' => '0',
+                    'where'       => 'id_parent = 0',
+                ],*/
+                'name'   => ['type' => 'text', 'label' => '植物名称', 'field' => 'name', 'class' => ' col-xs-6 col-sm-2'],
+                'latin_name'    => ['type' => 'text', 'label' => '植物（拉丁文）名称', 'field' => 'latin_name', 'class' => ' col-xs-6 col-sm-1'],
+            ],
+
+
+            'field_exportable' => [
+                'id'     => ['type' => 'integer', 'field' => 'id', 'label' => 'id'],
+                //'taxon' => ['type' => 'relation', 'relation' => 'parentPage', 'field' => 'title', 'label' => 'parent'],
+                'name'  =>   ['type' => 'text', 'label' =>'植物名称' ,'field' => 'name' ],
+                'latin_name'   =>   ['type' => 'text', 'label' =>'植物（拉丁文）名称' ,'field' => 'latin_name'],
+            ],
+            'orderBy' => 'id',
+            'orderType' => 'DESC',
+            'edit' => '1',
+            'export_csv' => '1',
+            'delete' => '1',
+            'create' => '1',
+            'copy' => '1',
+            'preview' => '1',
+            'view' => '0',
+            'selectable' => '1',
+            'showMedia' => '1',
+            'showMediaCategory' => '0',
+            'showMediaImages' => '1',
+            'showMediaDoc' => '1',
+            'showSeo' => '1',
+            'menu' => [
+                'home' => true,
+                'top-bar' =>[
+                    'show' => true,
+                    'action' =>['add','website']
+                ],
+            ],
+        ],
         'articles' => [
             'model' => 'Article',
             'title' => 'Pages',
