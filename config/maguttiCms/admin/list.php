@@ -7,6 +7,76 @@ return [
      */
     'item_per_pages' => 25,
     'section' => [
+        'taxonomicranks' => [
+
+            'model' => 'TaxonomicRank',
+            'title' => '分类等级',
+            'icon' => 'newspaper-o',
+            'fieldLabel' => 'ID,父Id,分类等级名称,英文分类等级名称,拉丁分类等级名称,排序,创建时间,更新时间',
+
+            'field' => ['id',
+                'pid'   => ['type' => 'text', 'field' => 'pid', 'class' => 'col-sm-1 text-center','orderable'=>true],
+                'name'   => ['type' => 'text', 'field' => 'name', 'class' => 'col-sm-1 text-center','orderable'=>true],
+                'english_name'   => ['type' => 'text', 'field' => 'english_name', 'class' => 'col-sm-1 text-center','orderable'=>true],
+                'latin_name'   => ['type' => 'text', 'field' => 'latin_name', 'class' => 'col-sm-1 text-center','orderable'=>true],
+                'sort'   => ['type' => 'text', 'field' => 'sort', 'class' => 'col-sm-1 text-center','orderable'=>true],
+                'created_at' => ['type' => 'date', 'field' => 'created_at', 'class' => 'col-sm-1 text-center','orderable'=>true],
+                'updated_at' => ['type' => 'date', 'field' => 'updated_at', 'class' => 'col-sm-1 text-center','orderable'=>true],
+            ],
+            'field_searcheable' => [
+                /*
+                 * This is the 'relation' version which builds a dropdown input for the corresponding relation.
+                 * It should be only used when there are only a few records to show.
+                 */
+                /**
+                 * This is the 'suggest' version which builds a dropdown handled by select 2 for the corresponding relation.
+                 * It should be used when there are a lot of records to filter.
+                 */
+                /*'id_parent' => [
+                    'label'       => 'Parent page',
+                    'class'       => ' col-xs-6 col-sm-2',
+                    'type'        => 'suggest',
+                    'model'       => 'article',
+                    'value'       => 'id',
+                    'caption'     => 'title',
+                    'is_accessor' => '0',
+                    'where'       => 'id_parent = 0',
+                ],*/
+                'name'   => ['type' => 'text', 'label' => '分类等级名称', 'field' => 'name', 'class' => ' col-xs-6 col-sm-2'],
+                'latin_name'    => ['type' => 'text', 'label' => '分类等级名称(拉丁)', 'field' => 'latin_name', 'class' => ' col-xs-6 col-sm-1'],
+            ],
+
+
+            'field_exportable' => [
+                'id'     => ['type' => 'integer', 'field' => 'id', 'label' => 'id'],
+                //'taxon' => ['type' => 'relation', 'relation' => 'parentPage', 'field' => 'title', 'label' => 'parent'],
+                'name'  =>   ['type' => 'text', 'label' =>'分类等级名称' ,'field' => 'name' ],
+                'latin_name'   =>   ['type' => 'text', 'label' =>'分类等级名称(拉丁)' ,'field' => 'latin_name'],
+            ],
+            'orderBy' => 'id',
+            'orderType' => 'DESC',
+            'edit' => '1',
+            'export_csv' => '1',
+            'delete' => '1',
+            'create' => '1',
+            'copy' => '1',
+            'preview' => '1',
+            'view' => '0',
+            'selectable' => '1',
+            'showMedia' => '1',
+            'showMediaCategory' => '0',
+            'showMediaImages' => '1',
+            'showMediaDoc' => '1',
+            'showSeo' => '1',
+            'menu' => [
+                'home' => true,
+                'top-bar' =>[
+                    'show' => true,
+                    'action' =>['add','website']
+                ],
+            ],
+        ],
+
         'botanies' => [
             'model' => 'Botany',
             'title' => '植物',
@@ -106,6 +176,7 @@ return [
                 ],
             ],
         ],
+
         'articles' => [
             'model' => 'Article',
             'title' => 'Pages',

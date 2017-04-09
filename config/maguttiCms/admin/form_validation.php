@@ -103,6 +103,13 @@ return [
             'img6' => 'max:255',
 
         ],
+        'taxonomicranks' => [
+            'pid' => 'required|integer',
+            'name' => 'required|max:255',
+            'english_name' => 'required|max:255',
+            'latin_name' => 'required|max:255',
+            'sort' => 'integer',
+        ],
 
 
 
