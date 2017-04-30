@@ -88,6 +88,7 @@ Route::group(['prefix' => LaravelLocalization::setLocale()], function () {
     Route::get('/',                     '\App\MaguttiCms\Website\Controllers\PagesController@home');
     Route::get('/news/',                '\App\MaguttiCms\Website\Controllers\PagesController@news');
     Route::get('/news/{slug}',          '\App\MaguttiCms\Website\Controllers\PagesController@news');
+    Route::get('/botanies/',                '\App\MaguttiCms\Website\Controllers\PagesController@botanies');
     Route::get('/products/{product?}',	'\App\MaguttiCms\Website\Controllers\ProductsController@products');
     Route::get('/{slug?}',              '\App\MaguttiCms\Website\Controllers\PagesController@pages');
     Route::post('/contacts/',		    '\App\MaguttiCms\Website\Controllers\WebsiteFormController@getContactUsForm');

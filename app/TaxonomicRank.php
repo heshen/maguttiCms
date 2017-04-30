@@ -7,9 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 class TaxonomicRank extends Model
 {
 
-//    public function pid() {
-//        return $this->belongsTo('App\TaxonomicRank','pid','id');
-//    }
+    public function media() {
+        return $this->morphMany('App\Media', 'model');
+    }
 
     protected $fillable = [
         'pid',

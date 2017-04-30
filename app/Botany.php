@@ -16,7 +16,9 @@ class Botany extends Model
         return $this->morphMany('App\Media', 'model')->orderBy('sort');
     }
 
-
+    public function taxonomy() {
+        return $this->belongsTo('App\Taxonomy','pid','id');
+    }
 
     protected $fillable = [
         'name',
@@ -100,13 +102,24 @@ class Botany extends Model
             'display'   => '1',
         ];
 
+//        $this->fieldspec['taxon'] = [
+//            'type'      => 'integer',
+//            'pkey'      => 'n',
+//            'required'  => true,
+//            'hidden'    => '0',
+//            'label'     => '生物分类',
+//            'extraMsg'  => '',
+//            'display'   => '1',
+//        ];
+
         $this->fieldspec['taxon'] = [
-            'type'      => 'integer',
-            'pkey'      => 'n',
-            'required'  => true,
-            'hidden'    => '0',
+            'type'      => 'relation',
+            'model'     => 'taxonomy',
+            'foreign_key' => 'id',
+            'label_key' => 'name',
             'label'     => '生物分类',
-            'extraMsg'  => '',
+            'hidden'    => '0',
+            'required'  =>  true,
             'display'   => '1',
         ];
 

@@ -120,6 +120,4 @@ class PagesController extends Controller
         }
     }
 
-
-
 }

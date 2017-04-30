@@ -90,21 +90,21 @@ return [
             'medical' => 'max:1000',
 
             'img_title1' => 'max:255',
-            'img1' => 'max:255',
+            'img1' => 'max:2000',
             'img_title2' => 'max:255',
-            'img2' => 'max:255',
+            'img2' => 'max:2000',
             'img_title3' => 'max:255',
-            'img3' => 'max:255',
+            'img3' => 'max:2000',
             'img_title4' => 'max:255',
-            'img4' => 'max:255',
+            'img4' => 'max:2000',
             'img_title5' => 'max:255',
-            'img5' => 'max:255',
+            'img5' => 'max:2000',
             'img_title6' => 'max:255',
-            'img6' => 'max:255',
+            'img6' => 'max:2000',
 
         ],
         'taxonomicranks' => [
-            'pid' => 'required|integer',
+            'pid' => 'integer',
             'name' => 'required|max:255',
             'english_name' => 'required|max:255',
             'latin_name' => 'required|max:255',
@@ -112,6 +112,14 @@ return [
         ],
 
 
+        'taxonomies' => [
+            'pid' => 'integer',
+            'taxon_rank_id' => 'required|integer',
+            'name' => 'required|max:255',
+            'english_name' => 'required|max:255',
+            'latin_name' => 'required|max:255',
+            'sort' => 'integer',
+        ],
 
 
 		
