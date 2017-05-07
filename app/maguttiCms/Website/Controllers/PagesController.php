@@ -1,19 +1,19 @@
 <?php
 
 namespace App\MaguttiCms\Website\Controllers;
+use App\Botany;
 use App\FaqCategory;
 use App\MaguttiCms\Website\Repos\Article\ArticleRepositoryInterface;
 use App\MaguttiCms\Website\Repos\News\NewsRepositoryInterface;
+use App\MaguttiCms\Website\Repos\Botanies\BotaniesRepositoryInterface;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Redirect;
 use Input;
 use Validator;
-use App\Article;
-use App\News;
-use App\Product;
 use App\PlantProvenience;
 use App\LeafType;
 use App\Environment;
+use App\Taxonomy;
 use Domain;
 
 
@@ -33,6 +33,8 @@ class PagesController extends Controller
      * @var NewsRepositoryInterface
      */
     protected  $newsRepo;
+
+    protected  $botaniesRepo;
     /**
      * @var NewsRepositoryInterface
      *
@@ -45,10 +47,11 @@ class PagesController extends Controller
      * @param PostRepositoryInterface $news
      */
 
-    public function __construct(ArticleRepositoryInterface $article,NewsRepositoryInterface $news )
+    public function __construct(ArticleRepositoryInterface $article,NewsRepositoryInterface $news ,BotaniesRepositoryInterface $botanies)
     {
         $this->articleRepo = $article;
         $this->newsRepo    = $news;
+        $this->botaniesRepo = $botanies;
     }
 
     /**
@@ -115,6 +118,30 @@ class PagesController extends Controller
             if($news){
                 $this->setSeo($news);
                 return view('website.news.single',compact('article','news'));
+            }
+            return Redirect::to('/');
+        }
+    }//
+
+    /**
+     * @param string $slug
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function botanies($id= '') {
+        $article = $this->articleRepo->getBySlug('botanies');
+
+        if($id == '') {
+            $this->setSeo($article);
+            $botanies = Botany::all();
+            return view('website.botanies.home',compact('article','botanies'));
+        }
+        else {
+            $botanies = Botany::where("id", $id)-> first();
+            $taxonomy = Taxonomy::where("id",$botanies ->taxon) -> first();
+
+            if($botanies){
+                //$this->setSeo($botanies);
+                return view('website.botanies.single',compact('article','botanies','taxonomy'));
             }
             return Redirect::to('/');
         }

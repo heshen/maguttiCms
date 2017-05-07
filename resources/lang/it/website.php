@@ -38,6 +38,10 @@ return [
 		'share_on'          => 'Condividi su'
 	],
 
+    'botanies' => [
+        'latest'    => 'Ultime',
+        'share_on'  => 'Condividi su'
+    ],
     'message' => [
         'contact_feedback'	=> 'Grazie per  aver inviato la tua richiesta',
         'privacy'			=> 'Acconsento al trattamento dei dati',

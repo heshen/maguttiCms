@@ -37,7 +37,12 @@ return [
     ],
     'news' => [
         'latest'    => 'Ultime News',
-        'share_on'  => 'Condividi su'
+        'share_on'  => 'Share'
+    ],
+
+    'botanies' => [
+        'latest'    => 'Ultime',
+        'share_on'  => 'Share'
     ],
 
     'message' => [

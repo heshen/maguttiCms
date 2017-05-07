@@ -40,6 +40,11 @@ return [
         'share_on'  => '分享'
     ],
 
+    'botanies' => [
+        'latest'    => '最新',
+        'share_on'  => '分享'
+    ],
+
     'message' => [
         'contact_feedback'  => '感谢你的反馈.<br> 感谢！ ',
         'privacy'           => '我已经阅读并接受使用隐私条款.',

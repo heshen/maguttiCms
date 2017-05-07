@@ -28,5 +28,8 @@ class WebsiteDbServiceProvider extends ServiceProvider
         App::bind('App\MaguttiCms\Website\Repos\News\NewsRepositoryInterface', 'App\MaguttiCms\Website\Repos\News\DbNewsRepository');
         App::bind('App\MaguttiCms\Website\Repos\Product\ProductRepositoryInterface', 'App\MaguttiCms\Website\Repos\Product\DbProductRepository');
 
+        // heshen add
+        App::bind('App\MaguttiCms\Website\Repos\Botanies\BotaniesRepositoryInterface', 'App\MaguttiCms\Website\Repos\Botanies\DbBotaniesRepository');
+
     }
 }

@@ -341,4 +341,6 @@ class Botany extends Model
         return $this->fieldspec;
     }
 
+    //Latest
+
 }
